@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal animation="fade" direction="up" delay={0.2}>
+        <ScrollReveal animation="fade" direction="up" delay={0.2} amount={0.05}>
           <div className="mt-12 space-y-8 text-text-body leading-relaxed">
             <div>
               <h2 className="text-xl font-bold text-text-heading">
