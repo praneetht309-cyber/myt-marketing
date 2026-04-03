@@ -61,7 +61,7 @@ export default function Home() {
           HERO — Dark, bold, 15-second punch
           ================================================================ */}
       <section className="hero-gradient relative overflow-hidden">
-        <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[85vh] sm:px-6 sm:py-24">
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-4 py-12 text-center sm:min-h-[70vh] sm:px-6 sm:py-20">
           {/* Identity — "That's MY building" moment */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -93,7 +93,7 @@ export default function Home() {
       {/* ================================================================
           FEATURE MARQUEE — auto-scrolling feature cards
           ================================================================ */}
-      <section className="overflow-hidden border-t border-neutral-200 bg-white py-10 sm:py-14">
+      <section className="overflow-hidden border-t border-neutral-200 bg-white py-6 sm:py-14">
         <div className="marquee-container">
           <div className="marquee-track">
             {[...MARQUEE_FEATURES, ...MARQUEE_FEATURES].map((feature, i) => (
