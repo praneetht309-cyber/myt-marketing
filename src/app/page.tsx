@@ -126,29 +126,31 @@ export default function Home() {
       </section>
 
       {/* ================================================================
-          PAIN POINTS — Stacked cards, Option B
+          PAIN POINTS — Scroll-snap full sections, Option A
           ================================================================ */}
-      <section className="relative py-24 sm:py-32">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <ScrollReveal animation="fade" direction="up">
-            <p className="text-center text-sm font-semibold uppercase tracking-widest text-primary/60">
-              Sound familiar?
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-bold text-text-heading sm:text-4xl">
-              Your apartment problems, solved.
-            </h2>
-          </ScrollReveal>
-
-          <div className="mt-16 space-y-6">
-            <StaggerContainer staggerDelay={0.12}>
-              {PAIN_POINTS.map((item, i) => (
-                <StaggerItem key={i}>
-                  <PainPointCard {...item} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+      <section className="snap-container">
+        {PAIN_POINTS.map((item, i) => (
+          <div key={i} className="snap-section flex items-center justify-center bg-surface-page">
+            <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+              {i === 0 && (
+                <p className="mb-16 text-sm font-semibold uppercase tracking-widest text-primary/40">
+                  Sound familiar?
+                </p>
+              )}
+              <ScrollReveal animation="blur" direction="up">
+                <p className="text-2xl font-medium text-text-heading/30 line-through decoration-primary/30 decoration-2 sm:text-3xl md:text-4xl">
+                  {item.pain}
+                </p>
+                <p className="mt-4 text-2xl font-bold text-primary sm:text-3xl md:text-4xl">
+                  {item.solution}
+                </p>
+                <p className="mx-auto mt-6 max-w-md text-base text-text-body">
+                  {item.detail}
+                </p>
+              </ScrollReveal>
+            </div>
           </div>
-        </div>
+        ))}
       </section>
 
       {/* ================================================================

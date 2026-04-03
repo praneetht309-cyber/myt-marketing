@@ -104,6 +104,19 @@ html {
   animation: phone-float 4s ease-in-out infinite;
 }
 
+/* Scroll-snap pain points (Option A) */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  min-height: 100vh;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .phone-float {
     animation: none;
