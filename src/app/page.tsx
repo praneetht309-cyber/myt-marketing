@@ -60,9 +60,9 @@ export default function Home() {
       {/* ================================================================
           HERO — Dark, bold, 15-second punch
           ================================================================ */}
-      <section className="hero-gradient relative overflow-hidden">
-        <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-4 py-12 text-center sm:min-h-[70vh] sm:px-6 sm:py-20">
-          {/* Identity — "That's MY building" moment */}
+      <section className="hero-gradient relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden">
+        {/* Hero content — centered vertically in available space */}
+        <div className="relative mx-auto flex flex-1 max-w-4xl flex-col items-center justify-center px-4 text-center sm:px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,13 +74,11 @@ export default function Home() {
             Management Platform.
           </motion.h1>
 
-          {/* Feature marquee replaces text rotator */}
-
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-lg text-sm text-text-body sm:text-base"
+            transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mt-5 max-w-lg text-sm text-text-body sm:text-base"
           >
             Everything your self-managed apartment needs — in one app.
             <br />
@@ -88,27 +86,29 @@ export default function Home() {
           </motion.p>
         </div>
 
-      </section>
-
-      {/* ================================================================
-          FEATURE MARQUEE — auto-scrolling feature cards
-          ================================================================ */}
-      <section className="overflow-hidden border-t border-neutral-200 bg-white py-6 sm:py-14">
-        <div className="marquee-container">
-          <div className="marquee-track">
-            {[...MARQUEE_FEATURES, ...MARQUEE_FEATURES].map((feature, i) => (
-              <div
-                key={i}
-                className="flex flex-shrink-0 items-center gap-3 rounded-2xl border border-neutral-200 bg-surface-page px-5 py-3.5 transition-shadow hover:shadow-md"
-              >
-                <FeatureIcon name={feature.icon} />
-                <span className="whitespace-nowrap text-sm font-semibold text-text-heading">
-                  {feature.title}
-                </span>
-              </div>
-            ))}
+        {/* Feature marquee — pinned to bottom of hero */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="overflow-hidden border-t border-neutral-200 bg-white py-5"
+        >
+          <div className="marquee-container">
+            <div className="marquee-track">
+              {[...MARQUEE_FEATURES, ...MARQUEE_FEATURES].map((feature, i) => (
+                <div
+                  key={i}
+                  className="flex flex-shrink-0 items-center gap-3 rounded-2xl border border-neutral-200 bg-surface-page px-5 py-3"
+                >
+                  <FeatureIcon name={feature.icon} />
+                  <span className="whitespace-nowrap text-sm font-semibold text-text-heading">
+                    {feature.title}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ================================================================
