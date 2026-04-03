@@ -57,41 +57,59 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto flex min-h-[85vh] max-w-4xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/60"
-          >
-            For self-managed apartments in India
-          </motion.div>
-
+          {/* Identity — "That's MY building" moment */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl"
           >
-            Create your apartment
-            <br />
-            <span className="text-secondary">in 15 seconds.</span>
+            For Stand-Alone Apartments.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-6 max-w-xl text-lg text-white/50 sm:text-xl"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/40 sm:text-xl"
+          >
+            Small buildings. 10–50 residents. Self-managed by residents themselves.
+            <br className="hidden sm:block" />
+            No security desk. No management office. Just you and your neighbours.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-3 text-sm text-white/20"
+          >
+            Not a gated community app.
+          </motion.p>
+
+          {/* The hook */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-12 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+          >
+            Create yours <span className="text-secondary">in 15 seconds.</span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-4 text-base text-white/40"
           >
             6 fields. No paperwork. No setup fees.
-            <br />
-            Just your apartment, managed.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.6, delay: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <Link
