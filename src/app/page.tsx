@@ -62,7 +62,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl"
+            className="whitespace-nowrap text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl"
           >
             For Stand-Alone Apartments.
           </motion.h1>
@@ -110,14 +110,8 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            className="mt-10"
           >
-            <Link
-              href="/early-access"
-              className="rounded-xl bg-secondary px-8 py-3.5 text-sm font-semibold text-primary transition-all hover:bg-secondary/90 hover:shadow-lg hover:shadow-secondary/20"
-            >
-              Get Early Access
-            </Link>
             <Link
               href="/features"
               className="rounded-xl border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
