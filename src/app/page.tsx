@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { FeatureIcon } from "@/components/ui/feature-icon";
 
 const PAIN_POINTS = [
   {
@@ -36,6 +36,18 @@ const PAIN_POINTS = [
   },
 ];
 
+const MARQUEE_FEATURES = [
+  { title: "Maintenance Payments", icon: "wallet" },
+  { title: "Account Tracking", icon: "wallet" },
+  { title: "Notices & Reminders", icon: "megaphone" },
+  { title: "Announcements", icon: "megaphone" },
+  { title: "Community Chat", icon: "chat" },
+  { title: "Resident Directory", icon: "users" },
+  { title: "Requests & Complaints", icon: "clipboard" },
+  { title: "Roles & Permissions", icon: "lock" },
+  { title: "Instant Onboarding", icon: "rocket" },
+];
+
 const STEPS = [
   { number: "01", title: "Enter 6 details", description: "Apartment name, your name, flat number, total flats, maintenance amount, balance." },
   { number: "02", title: "App sets up everything", description: "Blocks, floors, flats, accounts — all auto-generated." },
@@ -62,14 +74,7 @@ export default function Home() {
             Stand-Alone Apartment.
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-6"
-          >
-            <TextRotator />
-          </motion.div>
+          {/* Feature marquee replaces text rotator */}
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -83,6 +88,27 @@ export default function Home() {
           </motion.p>
         </div>
 
+      </section>
+
+      {/* ================================================================
+          FEATURE MARQUEE — auto-scrolling feature cards
+          ================================================================ */}
+      <section className="overflow-hidden border-t border-neutral-200 bg-white py-10 sm:py-14">
+        <div className="marquee-container">
+          <div className="marquee-track">
+            {[...MARQUEE_FEATURES, ...MARQUEE_FEATURES].map((feature, i) => (
+              <div
+                key={i}
+                className="flex flex-shrink-0 items-center gap-3 rounded-2xl border border-neutral-200 bg-surface-page px-5 py-3.5 transition-shadow hover:shadow-md"
+              >
+                <FeatureIcon name={feature.icon} />
+                <span className="whitespace-nowrap text-sm font-semibold text-text-heading">
+                  {feature.title}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ================================================================
@@ -220,45 +246,3 @@ export default function Home() {
   );
 }
 
-/* ====================================================================
-   Pain Point Card — Pain crosses out, solution appears
-   ==================================================================== */
-/* ====================================================================
-   Text Rotator — cycles through features in the hero
-   ==================================================================== */
-const ROTATING_FEATURES = [
-  "Maintenance Payments",
-  "Account Tracking",
-  "Notices & Announcements",
-  "Community Chat",
-  "Resident Directory",
-  "Requests & Complaints",
-];
-
-function TextRotator() {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % ROTATING_FEATURES.length);
-        setVisible(true);
-      }, 300);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="h-10 sm:h-14">
-      <p
-        className={`text-2xl font-bold text-primary transition-all duration-300 sm:text-4xl ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-        }`}
-      >
-        {ROTATING_FEATURES[index]}
-      </p>
-    </div>
-  );
-}

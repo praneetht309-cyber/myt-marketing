@@ -104,6 +104,33 @@ html {
   animation: phone-float 4s ease-in-out infinite;
 }
 
+/* Feature marquee — infinite horizontal scroll */
+.marquee-container {
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Feature showcase sections (dark) */
 .feature-showcase {
   background: #0a1419;
