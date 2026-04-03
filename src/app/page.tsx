@@ -54,13 +54,13 @@ export default function Home() {
           <div className="absolute right-1/4 bottom-1/4 h-[400px] w-[400px] rounded-full bg-white/5 blur-[100px]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[85vh] max-w-4xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
+        <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[85vh] sm:px-6 sm:py-24">
           {/* Identity — "That's MY building" moment */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="whitespace-nowrap text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl"
+            className="text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl sm:whitespace-nowrap"
           >
             For Stand-Alone Apartments.
           </motion.h1>
@@ -69,7 +69,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-white/40 sm:text-xl"
+            className="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-white/40 sm:text-xl"
           >
             Small buildings. 10–50 residents. Self-managed by residents themselves.
             <br />
@@ -90,7 +90,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-12 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="mt-10 text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
           >
             Create yours <span className="text-secondary">in 15 seconds.</span>
           </motion.p>
