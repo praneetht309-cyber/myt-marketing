@@ -69,9 +69,9 @@ export default function Home() {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-3xl font-bold tracking-tight text-text-heading sm:text-5xl md:text-6xl"
           >
-            Manage Your
+            Stand-Alone Apartment
             <br />
-            Stand-Alone Apartment.
+            Management Platform.
           </motion.h1>
 
           {/* Feature marquee replaces text rotator */}
@@ -84,7 +84,7 @@ export default function Home() {
           >
             Everything your self-managed apartment needs — in one app.
             <br />
-            Set up <span className="font-semibold text-primary">in 15 seconds.</span>
+            Create your apartment <span className="font-semibold text-primary">in 15 seconds.</span>
           </motion.p>
         </div>
 
