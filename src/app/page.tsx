@@ -71,10 +71,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/40 sm:text-xl"
+            className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-white/40 sm:text-xl"
           >
             Small buildings. 10–50 residents. Self-managed by residents themselves.
-            <br className="hidden sm:block" />
+            <br />
             No security desk. No management office. Just you and your neighbours.
           </motion.p>
 
