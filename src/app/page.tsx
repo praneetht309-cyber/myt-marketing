@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 
 const PAIN_POINTS = [
@@ -237,28 +237,28 @@ const ROTATING_FEATURES = [
 
 function TextRotator() {
   const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % ROTATING_FEATURES.length);
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % ROTATING_FEATURES.length);
+        setVisible(true);
+      }, 300);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative flex h-10 items-center justify-center overflow-hidden sm:h-14">
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={index}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -30, opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute text-2xl font-bold text-primary sm:text-4xl"
-        >
-          {ROTATING_FEATURES[index]}
-        </motion.p>
-      </AnimatePresence>
+    <div className="h-10 sm:h-14">
+      <p
+        className={`text-2xl font-bold text-primary transition-all duration-300 sm:text-4xl ${
+          visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+        }`}
+      >
+        {ROTATING_FEATURES[index]}
+      </p>
     </div>
   );
 }
