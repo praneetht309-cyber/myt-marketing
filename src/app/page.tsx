@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 
 const PAIN_POINTS = [
@@ -54,49 +55,32 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl font-bold tracking-tight text-text-heading sm:text-5xl md:text-7xl sm:whitespace-nowrap"
+            className="text-3xl font-bold tracking-tight text-text-heading sm:text-5xl md:text-6xl"
           >
-            For Stand-Alone Apartments.
+            Manage Your
+            <br />
+            Stand-Alone Apartment.
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-text-body sm:text-xl"
+            className="mt-6"
           >
-            Small buildings. 10–50 residents. Self-managed by residents themselves.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 text-sm text-text-body/40"
-          >
-            Not a gated community app.
-          </motion.p>
-
-          {/* The hook */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-10 text-2xl font-bold tracking-tight text-text-heading sm:text-4xl md:text-5xl"
-          >
-            Create yours <span className="text-primary">in 15 seconds.</span>
-          </motion.p>
+            <TextRotator />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-4 text-base text-text-body"
+            transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mt-6 max-w-lg text-sm text-text-body sm:text-base"
           >
-            6 fields. No paperwork. No setup fees.
+            Everything your self-managed apartment needs — in one app.
+            <br />
+            Set up <span className="font-semibold text-primary">in 15 seconds.</span>
           </motion.p>
-
-          {/* CTA buttons removed — close to production */}
         </div>
 
       </section>
@@ -239,30 +223,42 @@ export default function Home() {
 /* ====================================================================
    Pain Point Card — Pain crosses out, solution appears
    ==================================================================== */
-function PainPointCard({
-  pain,
-  solution,
-  detail,
-}: {
-  pain: string;
-  solution: string;
-  detail: string;
-}) {
+/* ====================================================================
+   Text Rotator — cycles through features in the hero
+   ==================================================================== */
+const ROTATING_FEATURES = [
+  "Maintenance Payments",
+  "Account Tracking",
+  "Notices & Announcements",
+  "Community Chat",
+  "Resident Directory",
+  "Requests & Complaints",
+];
+
+function TextRotator() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % ROTATING_FEATURES.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="group rounded-2xl border border-neutral-200 bg-white p-6 transition-all hover:border-primary/20 hover:shadow-md sm:p-8">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6">
-        <div className="flex-1">
-          <p className="text-lg font-medium text-text-heading/40 line-through decoration-primary/40 decoration-2">
-            {pain}
-          </p>
-          <p className="mt-1 text-lg font-semibold text-primary">
-            {solution}
-          </p>
-        </div>
-        <p className="flex-shrink-0 text-sm text-text-body sm:max-w-[200px] sm:text-right">
-          {detail}
-        </p>
-      </div>
+    <div className="relative h-10 overflow-hidden sm:h-14">
+      <AnimatePresence mode="wait">
+        <motion.p
+          key={index}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -30, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-x-0 text-2xl font-bold text-primary sm:text-4xl"
+        >
+          {ROTATING_FEATURES[index]}
+        </motion.p>
+      </AnimatePresence>
     </div>
   );
 }
