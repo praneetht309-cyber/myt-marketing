@@ -6,34 +6,32 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scr
 
 const PAIN_POINTS = [
   {
-    pain: "Still tracking maintenance in Excel?",
-    solution: "MYT does it automatically.",
-    detail: "Real-time dashboard. Who paid, who didn't — one glance.",
+    pain: "Sending payment screenshots on WhatsApp?",
+    solution: "Pay in MYT.",
+    detail: "Tap Pay → Confirm → Done. Admin sees it instantly. No screenshots, no chasing.",
+    placeholder: "Pay Maintenance",
+    // Replace with: /videos/pay-maintenance.mp4
   },
   {
-    pain: "Sending payment screenshots on WhatsApp?",
-    solution: "Pay in-app. Admin sees it instantly.",
-    detail: "No more chasing confirmations. Every payment tracked.",
+    pain: "Still tracking accounts in Excel?",
+    solution: "MYT Accounts.",
+    detail: "Operating balance, recent transactions, flat-wise dues — all live, always updated.",
+    placeholder: "Accounts Dashboard",
+    // Replace with: /videos/accounts.mp4
   },
   {
     pain: "Noisy neighbour at 11 PM?",
-    solution: "Send a notice in 2 taps.",
-    detail: "Formal, trackable, no awkward confrontations.",
-  },
-  {
-    pain: "Water shutdown tomorrow?",
-    solution: "One announcement. Everyone knows.",
-    detail: "No one misses it. No WhatsApp scroll-back.",
+    solution: "Send a notice.",
+    detail: "Formal, trackable, no awkward confrontations. 2 taps and it's sent.",
+    placeholder: "Send Notice",
+    // Replace with: /videos/send-notice.mp4
   },
   {
     pain: "50 unread messages in society group?",
-    solution: "Focused community chat.",
-    detail: "Apartment discussions, not memes and forwards.",
-  },
-  {
-    pain: "Chasing the plumber's number again?",
-    solution: "Handyman directory. Always there.",
-    detail: "Electrician, plumber, carpenter — saved and shared.",
+    solution: "MYT Community Chat.",
+    detail: "Apartment discussions, not memes and forwards. Everyone in one place.",
+    placeholder: "Community Chat",
+    // Replace with: /videos/community-chat.mp4
   },
 ];
 
@@ -126,32 +124,52 @@ export default function Home() {
       </section>
 
       {/* ================================================================
-          PAIN POINTS — Scroll-snap full sections, Option A
+          FEATURE SHOWCASE — Anima-style: text left, demo right
           ================================================================ */}
-      <section className="snap-container">
-        {PAIN_POINTS.map((item, i) => (
-          <div key={i} className="snap-section flex items-center justify-center bg-surface-page">
-            <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-              {i === 0 && (
-                <p className="mb-16 text-sm font-semibold uppercase tracking-widest text-primary/40">
-                  Sound familiar?
-                </p>
-              )}
-              <ScrollReveal animation="blur" direction="up">
-                <p className="text-2xl font-medium text-text-heading/30 line-through decoration-primary/30 decoration-2 sm:text-3xl md:text-4xl">
-                  {item.pain}
-                </p>
-                <p className="mt-4 text-2xl font-bold text-primary sm:text-3xl md:text-4xl">
-                  {item.solution}
-                </p>
-                <p className="mx-auto mt-6 max-w-md text-base text-text-body">
-                  {item.detail}
-                </p>
-              </ScrollReveal>
+      {PAIN_POINTS.map((item, i) => (
+        <section key={i} className="feature-showcase border-t border-white/5">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+            <div className={`flex flex-col items-center gap-12 md:flex-row ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+              {/* Text side */}
+              <div className="flex-1">
+                <ScrollReveal animation="slide" direction={i % 2 === 0 ? "left" : "right"}>
+                  <p className="text-sm font-medium text-secondary/70">
+                    Sound familiar?
+                  </p>
+                  <p className="mt-4 text-xl font-medium text-white/30 line-through decoration-white/20 decoration-2 sm:text-2xl">
+                    {item.pain}
+                  </p>
+                  <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                    {item.solution}
+                  </h3>
+                  <p className="mt-4 max-w-md text-base leading-relaxed text-white/40">
+                    {item.detail}
+                  </p>
+                </ScrollReveal>
+              </div>
+
+              {/* Demo side — placeholder, replace with <video> later */}
+              <div className="flex-1">
+                <ScrollReveal animation="scale" delay={0.2}>
+                  <div className="demo-placeholder relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                    <div className="flex aspect-[9/16] max-h-[500px] items-center justify-center sm:aspect-[3/4]">
+                      <div className="text-center">
+                        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
+                          <svg className="h-8 w-8 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                          </svg>
+                        </div>
+                        <p className="text-sm font-medium text-white/30">{item.placeholder}</p>
+                        <p className="mt-1 text-xs text-white/15">Screen recording coming soon</p>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
-        ))}
-      </section>
+        </section>
+      ))}
 
       {/* ================================================================
           HOW IT WORKS — 3 steps
