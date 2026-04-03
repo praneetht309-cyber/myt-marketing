@@ -246,7 +246,7 @@ function TextRotator() {
   }, []);
 
   return (
-    <div className="relative h-10 overflow-hidden sm:h-14">
+    <div className="relative flex h-10 items-center justify-center overflow-hidden sm:h-14">
       <AnimatePresence mode="wait">
         <motion.p
           key={index}
@@ -254,7 +254,7 @@ function TextRotator() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -30, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute inset-x-0 text-2xl font-bold text-primary sm:text-4xl"
+          className="absolute text-2xl font-bold text-primary sm:text-4xl"
         >
           {ROTATING_FEATURES[index]}
         </motion.p>
