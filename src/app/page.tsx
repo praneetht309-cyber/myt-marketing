@@ -72,8 +72,6 @@ export default function Home() {
             className="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-white/40 sm:text-xl"
           >
             Small buildings. 10–50 residents. Self-managed by residents themselves.
-            <br />
-            No security desk. No management office. Just you and your neighbours.
           </motion.p>
 
           <motion.p
@@ -104,19 +102,7 @@ export default function Home() {
             6 fields. No paperwork. No setup fees.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-10"
-          >
-            <Link
-              href="/features"
-              className="rounded-xl border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
-            >
-              See Features
-            </Link>
-          </motion.div>
+          {/* CTA buttons removed — close to production */}
         </div>
 
         {/* Fade to light */}
