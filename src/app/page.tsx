@@ -60,9 +60,9 @@ export default function Home() {
       {/* ================================================================
           HERO — Dark, bold, 15-second punch
           ================================================================ */}
-      <section className="hero-gradient relative flex flex-col overflow-hidden sm:min-h-[calc(100vh-4rem)]">
-        {/* Hero content */}
-        <div className="relative mx-auto flex flex-1 max-w-4xl flex-col items-center justify-center px-4 py-10 text-center sm:px-6 sm:py-0">
+      <section className="hero-gradient relative flex h-[calc(100dvh-4rem)] flex-col overflow-hidden">
+        {/* Hero content — takes remaining space, centered */}
+        <div className="relative mx-auto flex flex-1 max-w-4xl flex-col items-center justify-center px-4 text-center sm:px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,19 +86,19 @@ export default function Home() {
           </motion.p>
         </div>
 
-        {/* Feature marquee — pinned to bottom of hero */}
+        {/* Feature marquee — pinned to bottom, inside hero */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="overflow-hidden border-t border-neutral-200 bg-white py-5"
+          className="flex-shrink-0 overflow-hidden py-4"
         >
           <div className="marquee-container">
             <div className="marquee-track">
               {[...MARQUEE_FEATURES, ...MARQUEE_FEATURES].map((feature, i) => (
                 <div
                   key={i}
-                  className="flex flex-shrink-0 items-center gap-3 rounded-2xl border border-neutral-200 bg-surface-page px-5 py-3"
+                  className="flex flex-shrink-0 items-center gap-3 rounded-2xl border border-neutral-200 bg-white/80 px-5 py-3"
                 >
                   <FeatureIcon name={feature.icon} />
                   <span className="whitespace-nowrap text-sm font-semibold text-text-heading">
