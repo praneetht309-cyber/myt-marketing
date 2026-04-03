@@ -60,9 +60,9 @@ export default function Home() {
       {/* ================================================================
           HERO — Dark, bold, 15-second punch
           ================================================================ */}
-      <section className="hero-gradient relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden">
-        {/* Hero content — centered vertically in available space */}
-        <div className="relative mx-auto flex flex-1 max-w-4xl flex-col items-center justify-center px-4 text-center sm:px-6">
+      <section className="hero-gradient relative flex flex-col overflow-hidden sm:min-h-[calc(100vh-4rem)]">
+        {/* Hero content */}
+        <div className="relative mx-auto flex flex-1 max-w-4xl flex-col items-center justify-center px-4 py-10 text-center sm:px-6 sm:py-0">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
