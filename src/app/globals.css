@@ -40,7 +40,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hero gradient mesh */
+/* Dark hero section */
+.hero-dark {
+  background: #060d12;
+}
+
+/* Hero gradient mesh (legacy, kept for other pages) */
 .hero-gradient {
   background:
     radial-gradient(ellipse 80% 60% at 20% 40%, rgba(8, 58, 79, 0.07) 0%, transparent 70%),
