@@ -47,20 +47,14 @@ export default function Home() {
       {/* ================================================================
           HERO — Dark, bold, 15-second punch
           ================================================================ */}
-      <section className="hero-dark relative overflow-hidden">
-        {/* Subtle gradient orbs */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-secondary/10 blur-[120px]" />
-          <div className="absolute right-1/4 bottom-1/4 h-[400px] w-[400px] rounded-full bg-white/5 blur-[100px]" />
-        </div>
-
+      <section className="hero-gradient relative overflow-hidden">
         <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[85vh] sm:px-6 sm:py-24">
           {/* Identity — "That's MY building" moment */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl sm:whitespace-nowrap"
+            className="text-3xl font-bold tracking-tight text-text-heading sm:text-5xl md:text-7xl sm:whitespace-nowrap"
           >
             For Stand-Alone Apartments.
           </motion.h1>
@@ -69,7 +63,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-white/40 sm:text-xl"
+            className="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-text-body sm:text-xl"
           >
             Small buildings. 10–50 residents. Self-managed by residents themselves.
           </motion.p>
@@ -78,7 +72,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-3 text-sm text-white/20"
+            className="mt-3 text-sm text-text-body/40"
           >
             Not a gated community app.
           </motion.p>
@@ -88,16 +82,16 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-10 text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="mt-10 text-2xl font-bold tracking-tight text-text-heading sm:text-4xl md:text-5xl"
           >
-            Create yours <span className="text-secondary">in 15 seconds.</span>
+            Create yours <span className="text-primary">in 15 seconds.</span>
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-4 text-base text-white/40"
+            className="mt-4 text-base text-text-body"
           >
             6 fields. No paperwork. No setup fees.
           </motion.p>
@@ -105,8 +99,6 @@ export default function Home() {
           {/* CTA buttons removed — close to production */}
         </div>
 
-        {/* Fade to light */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface-page to-transparent" />
       </section>
 
       {/* ================================================================
