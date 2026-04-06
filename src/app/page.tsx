@@ -71,7 +71,7 @@ export default function Home() {
           HERO — Light, warm, product-first
           ================================================================ */}
       <section className="relative overflow-hidden bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[calc(100dvh-4rem)] md:flex-row md:gap-16 md:py-20 lg:gap-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-10 sm:px-6 md:min-h-[calc(100dvh-6rem)] md:flex-row md:gap-16 md:py-10 lg:gap-20">
           {/* Left — Text */}
           <div className="flex-1 text-center md:text-left">
             <motion.p
