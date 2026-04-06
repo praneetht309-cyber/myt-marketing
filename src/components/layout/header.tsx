@@ -204,7 +204,7 @@ export function Header() {
       </AnimatePresence>
 
       {/* Spacer to offset fixed header */}
-      <div className="h-24 sm:h-24" />
+      <div className="h-24 sm:h-20" />
     </>
   );
 }
