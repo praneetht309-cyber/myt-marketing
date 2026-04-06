@@ -74,11 +74,20 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[calc(100dvh-4rem)] md:flex-row md:gap-16 md:py-20 lg:gap-20">
           {/* Left — Text */}
           <div className="flex-1 text-center md:text-left">
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-sm font-medium italic text-text-body/60 sm:text-base"
+            >
+              A question for Stand Alone Apartments...
+            </motion.p>
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-3xl font-bold leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-3 text-3xl font-bold leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
             >
               Still managing your apartment on{" "}
               <span className="text-primary">Excel</span> and{" "}
@@ -88,10 +97,19 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="mx-auto mt-5 max-w-lg text-base text-text-body sm:text-lg md:mx-0"
             >
               Monthly Maintenance payments, Accounts, Notices and more — ONE APP!
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-2 text-sm font-semibold text-text-heading sm:text-base"
+            >
+              Built for Stand Alone Apartments.
             </motion.p>
 
             {/* Trust strip */}
