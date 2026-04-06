@@ -42,7 +42,12 @@ const STEPS = [
   {
     number: "1",
     title: "Enter 6 details",
-    description: "Apartment name, your name, flat number, total flats, maintenance amount, and current balance.",
+    description: "That's it. Nothing else.",
+    fields: [
+      ["Apartment Name", "Your Name"],
+      ["Monthly Maintenance", "Your Flat #"],
+      ["Current Balance", "Total Flats"],
+    ],
     stat: { target: 6, suffix: "", label: "fields" },
   },
   {
@@ -191,6 +196,18 @@ export default function Home() {
                   </div>
                   <h3 className="mt-4 text-lg font-semibold text-text-heading">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-body">{step.description}</p>
+                  {step.fields && (
+                    <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-left">
+                      {step.fields.map((row, ri) => (
+                        row.map((field, ci) => (
+                          <div key={`${ri}-${ci}`} className="flex items-center gap-1.5">
+                            <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/40" />
+                            <span className="text-xs text-text-body">{field}</span>
+                          </div>
+                        ))
+                      ))}
+                    </div>
+                  )}
                 </div>
               </StaggerItem>
             ))}
