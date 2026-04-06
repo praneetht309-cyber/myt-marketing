@@ -25,7 +25,7 @@ const PAIN_POINTS = [
   {
     pain: "Noisy neighbour at 11 PM?",
     solution: "Send a notice in 10 seconds.",
-    detail: "Formal, trackable, no awkward confrontations. Pick the type, write a line, send. Everyone gets it.",
+    detail: "Formal, trackable, no awkward confrontations. Pick the type, write a line, send. Send it to one resident, more residents or all residents. You choose.",
     placeholder: "Send Notice",
     // Replace with: /videos/send-notice.mp4
   },
