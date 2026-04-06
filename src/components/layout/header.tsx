@@ -13,6 +13,30 @@ const MENU_LINKS = [
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
+// Watch dimensions — expanded vs pill
+const WATCH = {
+  expanded: {
+    dialSize: 88,       // logo circle diameter
+    dialSizeSm: 100,
+    bandHeight: 44,     // strip height
+    bandHeightSm: 48,
+    bandWidth: "calc(50vw - 70px)",   // each band stretches to edges
+    bandWidthSm: "calc(50vw - 76px)",
+    gap: 0,
+    mt: 10,
+  },
+  pill: {
+    dialSize: 64,
+    dialSizeSm: 72,
+    bandHeight: 40,
+    bandHeightSm: 44,
+    bandWidth: 130,
+    bandWidthSm: 160,
+    gap: 0,
+    mt: 10,
+  },
+} as const;
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -26,131 +50,137 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  const s = scrolled ? WATCH.pill : WATCH.expanded;
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center">
-        {/* Logo — sits above the nav bar, large and centered */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-start justify-center pointer-events-none">
         <motion.div
           initial={false}
-          animate={{
-            marginTop: scrolled ? 8 : 12,
-            marginBottom: scrolled ? 4 : 8,
-            scale: scrolled ? 0.7 : 1,
-            opacity: scrolled ? 0 : 1,
-            height: scrolled ? 0 : "auto",
-          }}
-          transition={{
-            duration: 0.4,
-            ease: [0.25, 0.1, 0.25, 1],
-          }}
-          className="overflow-hidden"
+          animate={{ marginTop: s.mt }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="pointer-events-auto flex items-center justify-center"
         >
-          <Link href="/" onClick={() => setMenuOpen(false)}>
-            <Image
-              src="/logo.png"
-              alt="MYT"
-              width={200}
-              height={60}
-              className="h-16 w-auto sm:h-20"
-              priority
-            />
-          </Link>
-        </motion.div>
-
-        {/* Nav bar — Menu | (logo when scrolled) | Contact */}
-        <motion.div
-          initial={false}
-          animate={{
-            width: scrolled ? "min(420px, calc(100vw - 32px))" : "min(360px, calc(100vw - 32px))",
-            borderRadius: 9999,
-            backgroundColor: "rgba(233, 236, 237, 0.92)",
-            border: "1px solid rgba(198, 208, 212, 0.6)",
-            boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
-          }}
-          transition={{
-            duration: 0.4,
-            ease: [0.25, 0.1, 0.25, 1],
-          }}
-          className="relative flex h-12 items-center justify-between px-5 backdrop-blur-xl sm:h-14 sm:px-6"
-          style={{ willChange: "width" }}
-        >
-          {/* Left — Menu button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex items-center gap-1.5 rounded-full bg-white/60 px-3.5 py-1.5 text-xs font-medium text-text-heading transition-colors hover:bg-white sm:text-sm"
+          {/* Left band */}
+          <motion.div
+            initial={false}
+            animate={{
+              width: scrolled ? WATCH.pill.bandWidth : WATCH.expanded.bandWidth,
+              height: scrolled ? WATCH.pill.bandHeight : WATCH.expanded.bandHeight,
+            }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="flex items-center justify-start rounded-l-full border border-r-0 px-4 backdrop-blur-xl sm:px-5"
+            style={{
+              backgroundColor: "rgba(233, 236, 237, 0.92)",
+              borderColor: "rgba(198, 208, 212, 0.6)",
+              boxShadow: "-4px 4px 16px rgba(0, 0, 0, 0.06)",
+            }}
           >
-            <AnimatePresence mode="wait" initial={false}>
-              {menuOpen ? (
-                <motion.svg
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="h-3.5 w-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </motion.svg>
-              ) : (
-                <motion.svg
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="h-3.5 w-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </motion.svg>
-              )}
-            </AnimatePresence>
-            Menu
-          </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1.5 text-xs font-medium text-text-heading transition-colors hover:bg-white sm:text-sm"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {menuOpen ? (
+                  <motion.svg
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </motion.svg>
+                ) : (
+                  <motion.svg
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </motion.svg>
+                )}
+              </AnimatePresence>
+              Menu
+            </button>
+          </motion.div>
 
-          {/* Center — Logo (visible only when scrolled, replaces the large logo above) */}
-          <AnimatePresence>
-            {scrolled && (
+          {/* Center dial — the watch face with logo */}
+          <motion.div
+            initial={false}
+            animate={{
+              width: scrolled ? WATCH.pill.dialSize : WATCH.expanded.dialSize,
+              height: scrolled ? WATCH.pill.dialSize : WATCH.expanded.dialSize,
+            }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="relative z-10 flex items-center justify-center rounded-full border backdrop-blur-xl"
+            style={{
+              backgroundColor: "rgba(233, 236, 237, 0.95)",
+              borderColor: "rgba(198, 208, 212, 0.6)",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+              flexShrink: 0,
+            }}
+          >
+            <Link href="/" onClick={() => setMenuOpen(false)}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                initial={false}
+                animate={{
+                  width: scrolled ? 44 : 64,
+                  height: scrolled ? 44 : 64,
+                }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                className="relative"
               >
-                <Link href="/" onClick={() => setMenuOpen(false)}>
-                  <Image
-                    src="/logo.png"
-                    alt="MYT"
-                    width={120}
-                    height={36}
-                    className="h-8 w-auto sm:h-9"
-                  />
-                </Link>
+                <Image
+                  src="/logo.png"
+                  alt="MYT"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </motion.div>
-            )}
-          </AnimatePresence>
+            </Link>
+          </motion.div>
 
-          {/* Right — Contact */}
-          <Link
-            href="/contact"
-            className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
+          {/* Right band */}
+          <motion.div
+            initial={false}
+            animate={{
+              width: scrolled ? WATCH.pill.bandWidth : WATCH.expanded.bandWidth,
+              height: scrolled ? WATCH.pill.bandHeight : WATCH.expanded.bandHeight,
+            }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="flex items-center justify-end rounded-r-full border border-l-0 px-4 backdrop-blur-xl sm:px-5"
+            style={{
+              backgroundColor: "rgba(233, 236, 237, 0.92)",
+              borderColor: "rgba(198, 208, 212, 0.6)",
+              boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.06)",
+            }}
           >
-            Contact
-          </Link>
+            <Link
+              href="/contact"
+              className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
+            >
+              Contact
+            </Link>
+          </motion.div>
         </motion.div>
       </header>
 
@@ -192,7 +222,7 @@ export function Header() {
       </AnimatePresence>
 
       {/* Spacer to offset fixed header */}
-      <div className="h-28 sm:h-36" />
+      <div className="h-28 sm:h-32" />
     </>
   );
 }
