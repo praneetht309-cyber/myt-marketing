@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { PhoneMockup } from "@/components/ui/phone-mockup";
 import { FeatureTour } from "@/components/ui/feature-tour";
 
 const PAIN_POINTS = [
@@ -114,16 +114,25 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right — Phone mockup (static dashboard) */}
+          {/* Right — Phone with real dashboard screenshot */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 phone-float"
           >
-            {/* Replace PhoneMockup with a real screenshot: */}
-            {/* <Image src="/dashboard-screenshot.png" alt="MYT Dashboard" width={300} height={650} className="phone-float" /> */}
-            <PhoneMockup className="phone-float" />
+            <div
+              className="relative w-[220px] overflow-hidden rounded-[36px] border-[3px] border-neutral-700 shadow-2xl sm:w-[260px]"
+              style={{ aspectRatio: "9 / 19.5" }}
+            >
+              <Image
+                src="/dashboard-screenshot.jpeg"
+                alt="MYT Dashboard"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
 

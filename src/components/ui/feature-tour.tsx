@@ -213,20 +213,17 @@ function PhoneScreen({
 
   return (
     <motion.div
-      className="absolute inset-0 z-10 flex items-center justify-center bg-surface-page"
+      className="absolute inset-0 z-10 overflow-hidden bg-white"
       style={{ opacity }}
     >
-      {/* Replace this div with <video> when recordings are ready */}
-      {/* <video src={`/videos/${slug}.mp4`} autoPlay loop muted playsInline className="h-full w-full object-cover" /> */}
-      <div className="flex flex-col items-center gap-3 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
-          <svg className="h-7 w-7 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-          </svg>
-        </div>
-        <p className="text-sm font-medium text-text-body/50">{placeholder}</p>
-        <p className="text-xs text-text-body/30">Video coming soon</p>
-      </div>
+      <video
+        src="/videos/feature-demo.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="h-full w-full object-cover object-top"
+      />
     </motion.div>
   );
 }
