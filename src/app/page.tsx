@@ -168,8 +168,9 @@ export default function Home() {
       <section style={{ backgroundColor: "#F6F4EE" }}>
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
           <ScrollReveal animation="fade" direction="up">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary/50">
-              MYT — Because
+            <p className="text-base tracking-widest text-primary/50 sm:text-lg">
+              <span className="font-bold text-primary">MYT</span>{" "}
+              <span className="font-medium">— Because</span>
             </p>
           </ScrollReveal>
           <ScrollReveal animation="fade" direction="up" delay={0.15}>
