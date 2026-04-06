@@ -25,8 +25,8 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
 
   return (
     <section ref={containerRef} className="relative bg-white">
-      {/* Total height = number of sections * 150vh for smoother scroll */}
-      <div style={{ height: `${totalSections * 150}vh` }}>
+      {/* Total height = number of sections * 200vh for smoother scroll */}
+      <div style={{ height: `${totalSections * 200}vh` }}>
         {/* Sticky container — stays in viewport while user scrolls */}
         <div className="sticky top-0 flex h-dvh items-center overflow-hidden pt-28 sm:pt-32">
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 sm:px-6 md:flex-row md:items-center md:gap-12 lg:gap-20">
