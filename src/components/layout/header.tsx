@@ -41,11 +41,12 @@ export function Header() {
             width: scrolled ? "min(480px, calc(100vw - 32px))" : "100%",
             borderRadius: scrolled ? 9999 : 0,
             backgroundColor: scrolled
-              ? "rgba(255, 255, 255, 0.85)"
-              : "rgba(255, 255, 255, 0.95)",
+              ? "rgba(233, 236, 237, 0.92)"
+              : "rgba(233, 236, 237, 0.95)",
+            border: scrolled ? "1px solid rgba(198, 208, 212, 0.6)" : "none",
             boxShadow: scrolled
               ? "0 4px 24px rgba(0, 0, 0, 0.08)"
-              : "0 1px 0 rgba(0, 0, 0, 0.06)",
+              : "0 1px 0 rgba(0, 0, 0, 0.04)",
             marginTop: scrolled ? 12 : 0,
             paddingLeft: scrolled ? 20 : 24,
             paddingRight: scrolled ? 20 : 24,
@@ -109,7 +110,7 @@ export function Header() {
               alt="MYT"
               width={120}
               height={36}
-              className="h-9 w-auto sm:h-10"
+              className="h-12 w-auto sm:h-14"
               priority
             />
           </Link>

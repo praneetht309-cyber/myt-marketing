@@ -75,9 +75,9 @@ export default function Home() {
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-3xl font-bold leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
             >
-              Stop managing your apartment on{" "}
+              Still managing your apartment on{" "}
               <span className="text-primary">Excel</span> and{" "}
-              <span className="text-primary">WhatsApp.</span>
+              <span className="text-primary">WhatsApp</span>?
             </motion.h1>
 
             <motion.p
@@ -91,25 +91,18 @@ export default function Home() {
 
             {/* Trust strip */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 flex items-center justify-center gap-2 text-sm text-text-body/60 md:justify-start"
+              className="mt-8 flex justify-center md:justify-start"
             >
-              <span className="inline-flex items-center gap-1.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
-                6 fields
-              </span>
-              <span className="text-text-body/30">·</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
-                15 seconds
-              </span>
-              <span className="text-text-body/30">·</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
-                You&apos;re live
-              </span>
+              <div className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white sm:gap-4 sm:px-6 sm:py-2.5">
+                <span>6 fields</span>
+                <span className="text-white/40">·</span>
+                <span>15 seconds</span>
+                <span className="text-white/40">·</span>
+                <span>You&apos;re live</span>
+              </div>
             </motion.div>
           </div>
 
