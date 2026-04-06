@@ -18,7 +18,7 @@ const PAIN_POINTS = [
   {
     pain: "Still tracking accounts in Excel?",
     solution: "Automated. Always accurate.",
-    detail: "Operating balance, recent transactions, flat-wise dues — all live, always updated. No formulas, no errors.",
+    detail: "Account Balance, Maintenance Payments, Monthly Expenses — all in Accounts → Transactions. All live, always updated. No formulas, no errors.",
     placeholder: "Accounts Dashboard",
     // Replace with: /videos/accounts.mp4
   },
