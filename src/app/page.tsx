@@ -222,10 +222,10 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <ScrollReveal animation="scale">
             <h2 className="text-3xl font-bold text-text-heading sm:text-4xl">
-              Built for <span className="text-primary">3 to 300</span> residents.
+              Built for apartments with <span className="text-primary">3, 10, 30 or 300</span> flats.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-lg text-text-body">
-              Whether you have one block or ten. One admin or three.
+              Whether you have one block or ten. One Admin or many Admins.
               MYT adapts to your apartment — not the other way around.
             </p>
           </ScrollReveal>
