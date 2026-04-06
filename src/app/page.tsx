@@ -53,13 +53,13 @@ const STEPS = [
   {
     number: "2",
     title: "You're inside the app",
-    description: "Explore your dashboard, see your apartment structure — everything works immediately.",
+    description: "Explore your Dashboard, Accounts, Hub — everything works seamlessly.",
     stat: { target: 15, suffix: "s", label: "to set up" },
   },
   {
     number: "3",
     title: "Complete setup at your pace",
-    description: "Add residents, fill in details — the app guides you step by step. No rush.",
+    description: "Add Residents, add Structure, add more Financials — the app guides you step by step. No rush.",
     stat: { target: 100, suffix: "%", label: "your pace" },
   },
 ];
