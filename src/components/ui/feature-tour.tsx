@@ -29,10 +29,10 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
       <div style={{ height: `${totalSections * 100}vh` }}>
         {/* Sticky container — stays in viewport while user scrolls */}
         <div className="sticky top-0 flex h-dvh items-center overflow-hidden">
-          <div className="mx-auto flex w-full max-w-6xl items-center gap-8 px-4 sm:gap-12 sm:px-6 lg:gap-20">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 sm:px-6 md:flex-row md:gap-12 lg:gap-20">
             {/* Left — Text that fades in/out */}
             <div className="flex-1">
-              <div className="relative h-[280px] sm:h-[320px]">
+              <div className="relative h-[220px] sm:h-[280px] md:h-[320px]">
                 {painPoints.map((item, i) => (
                   <FeatureText
                     key={i}
@@ -48,7 +48,7 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
             </div>
 
             {/* Right — Phone with 3D tilt transitions */}
-            <div className="hidden flex-shrink-0 md:block" style={{ perspective: 1200 }}>
+            <div className="flex-shrink-0" style={{ perspective: 1200 }}>
               <PhoneWithTilt
                 scrollYProgress={scrollYProgress}
                 totalSections={totalSections}
@@ -164,7 +164,7 @@ function PhoneWithTilt({
       className="phone-float"
     >
       <div
-        className="relative w-[260px] overflow-hidden rounded-[36px] border-[3px] border-neutral-700 bg-white shadow-2xl lg:w-[300px]"
+        className="relative w-[180px] overflow-hidden rounded-[28px] border-[3px] border-neutral-700 bg-white shadow-2xl sm:w-[220px] md:w-[260px] lg:w-[300px]"
         style={{ aspectRatio: "9 / 19.5" }}
       >
         {/* Notch */}
