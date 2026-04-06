@@ -86,15 +86,23 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="mx-auto mt-5 max-w-lg text-base text-text-body sm:text-lg md:mx-0"
             >
-              Maintenance payments, accounts, notices, and more — one app.
+              Monthly maintenance payments, accounts, notices, and more — ONE APP!
             </motion.p>
 
             {/* Trust strip */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="mt-8 text-center text-sm font-medium text-text-heading md:text-left"
+            >
+              Creating your apartment is very easy!
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 flex justify-center md:justify-start"
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-3 flex justify-center md:justify-start"
             >
               <div className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white sm:gap-4 sm:px-6 sm:py-2.5">
                 <span>6 fields</span>
