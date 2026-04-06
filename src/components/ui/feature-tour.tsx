@@ -53,8 +53,13 @@ function MobileFeatureTour({ painPoints }: { painPoints: PainPoint[] }) {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal animation="scale" delay={0.15}>
-            <div className="mx-auto mt-8 max-w-[220px]">
+          <div className="mx-auto mt-8 max-w-[220px]" style={{ perspective: 800 }}>
+            <motion.div
+              initial={{ opacity: 0, rotateY: 90 }}
+              whileInView={{ opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            >
               <div
                 className="relative overflow-hidden rounded-[28px] border-[3px] border-neutral-700 bg-white shadow-xl"
                 style={{ aspectRatio: "9 / 19.5" }}
@@ -69,8 +74,8 @@ function MobileFeatureTour({ painPoints }: { painPoints: PainPoint[] }) {
                   className="h-full w-full object-cover object-top"
                 />
               </div>
-            </div>
-          </ScrollReveal>
+            </motion.div>
+          </div>
         </div>
       ))}
     </div>
