@@ -98,7 +98,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mx-auto mt-5 max-w-lg text-base text-text-body sm:text-lg md:mx-0"
+              className="mx-auto mt-5 max-w-lg text-xs text-text-body sm:text-sm md:mx-0"
             >
               Monthly Maintenance payments, Accounts, Notices and more — ONE APP!
             </motion.p>
@@ -107,9 +107,9 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-2 text-sm font-semibold text-text-heading sm:text-base"
+              className="mt-3 text-base font-bold text-text-heading sm:text-lg lg:text-xl"
             >
-              Built for Stand Alone Apartments.
+              MYT — Built for Stand Alone Apartments.
             </motion.p>
 
             {/* Trust strip */}
@@ -119,7 +119,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="mt-8 text-center text-sm font-medium text-text-heading md:text-left"
             >
-              Creating your apartment is very easy!
+              Creating your apartment in MYT is very easy!
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
