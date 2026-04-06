@@ -202,6 +202,28 @@ export default function Home() {
       <FeatureTour painPoints={PAIN_POINTS} />
 
       {/* ================================================================
+          AND MORE — teaser for remaining features
+          ================================================================ */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+          <ScrollReveal animation="fade" direction="up">
+            <p className="text-base text-text-body sm:text-lg">
+              Plus: <span className="font-semibold text-text-heading">Announcements</span> · <span className="font-semibold text-text-heading">Reminders</span> · <span className="font-semibold text-text-heading">Meetings</span> · <span className="font-semibold text-text-heading">Polls</span> · <span className="font-semibold text-text-heading">Resident Directory</span> · and more
+            </p>
+            <Link
+              href="/features"
+              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
+            >
+              Explore all features
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ================================================================
           HOW IT WORKS — 3 steps with animated counters
           ================================================================ */}
       <section className="border-t border-neutral-200 bg-white py-24 sm:py-32">
