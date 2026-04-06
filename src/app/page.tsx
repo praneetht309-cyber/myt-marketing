@@ -282,19 +282,19 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
           <ScrollReveal animation="fade" direction="up">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Your apartment. Finally managed.
+              Your Apartment. Your App.
             </h2>
-            <p className="mt-4 text-lg text-white/70">
-              Stop chasing screenshots. Stop updating spreadsheets. Start with MYT.
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/early-access"
-                className="inline-block rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-all hover:bg-neutral-100 hover:shadow-lg"
-              >
-                Get Started — It&apos;s Free
-              </Link>
+            <div className="mt-6 space-y-1 text-lg text-white/70">
+              <p>Stop chasing screenshots.</p>
+              <p>Stop updating spreadsheets.</p>
             </div>
+            <div className="mt-5 space-y-1 text-lg text-white/70">
+              <p>Admins deserve appreciation not blame.</p>
+              <p>Residents deserve transparency not confusion.</p>
+            </div>
+            <p className="mt-5 text-lg font-semibold text-white">
+              Start with MYT.
+            </p>
           </ScrollReveal>
         </div>
       </section>
