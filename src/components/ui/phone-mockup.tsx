@@ -4,7 +4,7 @@ interface PhoneMockupProps {
 
 export function PhoneMockup({ className }: PhoneMockupProps) {
   return (
-    <div className={className} style={{ width: 260 }}>
+    <div className={`w-[220px] sm:w-[260px] ${className ?? ""}`}>
       {/* Phone frame */}
       <div
         className="relative overflow-hidden rounded-[36px] border-[3px] border-neutral-700 bg-surface-page shadow-2xl"

@@ -66,7 +66,7 @@ export default function Home() {
           HERO — Light, warm, product-first
           ================================================================ */}
       <section className="hero-gradient relative overflow-hidden">
-        <div className="mx-auto flex min-h-[calc(100dvh-4rem)] max-w-6xl flex-col items-center justify-center gap-12 px-4 py-16 sm:px-6 md:flex-row md:gap-16 md:py-20 lg:gap-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[calc(100dvh-4rem)] md:flex-row md:gap-16 md:py-20 lg:gap-20">
           {/* Left — Text */}
           <div className="flex-1 text-center md:text-left">
             <motion.h1
