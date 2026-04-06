@@ -55,7 +55,7 @@ export function Header() {
             duration: 0.4,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className="flex h-14 items-center justify-between backdrop-blur-xl sm:h-16"
+          className="flex h-16 items-center justify-between backdrop-blur-xl sm:h-20"
           style={{ willChange: "width, border-radius, margin-top" }}
         >
           {/* Left — Menu button */}
@@ -110,7 +110,7 @@ export function Header() {
               alt="MYT"
               width={120}
               height={36}
-              className="h-12 w-auto sm:h-14"
+              className="h-14 w-auto sm:h-[4.5rem]"
               priority
             />
           </Link>
@@ -163,7 +163,7 @@ export function Header() {
       </AnimatePresence>
 
       {/* Spacer to offset fixed header */}
-      <div className="h-14 sm:h-16" />
+      <div className="h-16 sm:h-20" />
     </>
   );
 }
