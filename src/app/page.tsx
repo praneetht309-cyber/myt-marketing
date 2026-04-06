@@ -163,6 +163,24 @@ export default function Home() {
       </section>
 
       {/* ================================================================
+          EMOTIONAL HOOK — Why MYT exists
+          ================================================================ */}
+      <section className="bg-surface-page">
+        <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28">
+          <ScrollReveal animation="fade" direction="up">
+            <p className="text-2xl font-bold leading-relaxed text-text-heading sm:text-3xl lg:text-4xl">
+              Admins deserve appreciation{" "}
+              <span className="text-primary/40">not blame.</span>
+            </p>
+            <p className="mt-4 text-2xl font-bold leading-relaxed text-text-heading sm:text-3xl lg:text-4xl">
+              Residents deserve transparency{" "}
+              <span className="text-primary/40">not confusion.</span>
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ================================================================
           FEATURE TOUR — Scroll-driven sticky phone with 3D tilt
           ================================================================ */}
       <FeatureTour painPoints={PAIN_POINTS} />
@@ -287,10 +305,6 @@ export default function Home() {
             <div className="mt-6 space-y-1 text-lg text-white/70">
               <p>Stop chasing screenshots.</p>
               <p>Stop updating spreadsheets.</p>
-            </div>
-            <div className="mt-5 space-y-1 text-lg text-white/70">
-              <p>Admins deserve appreciation not blame.</p>
-              <p>Residents deserve transparency not confusion.</p>
             </div>
             <p className="mt-5 text-lg font-semibold text-white">
               Start with MYT.
