@@ -3,12 +3,12 @@ export const SITE = {
   tagline: "Stand Alone Apartment Management Platform",
   description:
     "MYT is a management platform built for self-managed residential communities in India. Onboard your apartment in 15 seconds.",
-  url: "https://myt.community",
+  url: "https://themyt.app",
 } as const;
 
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
-  { label: "Early Access", href: "/early-access" },
+  { label: "Get Started", href: "/early-access" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

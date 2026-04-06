@@ -40,7 +40,7 @@ export function Footer() {
                   href="/early-access"
                   className="text-sm text-text-body hover:text-primary"
                 >
-                  Early Access
+                  Get Started
                 </Link>
               </li>
               <li>

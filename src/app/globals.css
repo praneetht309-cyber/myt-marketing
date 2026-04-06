@@ -131,7 +131,7 @@ html {
   }
 }
 
-/* Feature showcase sections (dark) */
+/* Feature showcase sections (dark) — kept for features page */
 .feature-showcase {
   background: #0a1419;
 }
@@ -139,6 +139,16 @@ html {
 /* Demo placeholder shimmer */
 .demo-placeholder {
   background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%);
+}
+
+/* Scroll-driven feature tour divider */
+.feature-tour-divider {
+  background: linear-gradient(
+    to bottom,
+    var(--color-surface-page) 0%,
+    rgba(8, 58, 79, 0.03) 50%,
+    var(--color-surface-page) 100%
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {
