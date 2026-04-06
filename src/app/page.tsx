@@ -89,25 +89,11 @@ export default function Home() {
               Maintenance payments, accounts, notices, and more — one app.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start"
-            >
-              <Link
-                href="/early-access"
-                className="inline-block rounded-xl bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-hover hover:shadow-lg"
-              >
-                Get Started — It&apos;s Free
-              </Link>
-            </motion.div>
-
             {/* Trust strip */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 flex items-center justify-center gap-2 text-sm text-text-body/60 md:justify-start"
             >
               <span className="inline-flex items-center gap-1.5">
