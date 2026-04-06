@@ -1,76 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
           <div>
             <Image
               src="/logo.png"
               alt="MYT"
-              width={120}
-              height={36}
-              className="h-9 w-auto"
+              width={160}
+              height={48}
+              className="h-14 w-auto sm:h-16"
             />
-            <p className="mt-2 text-sm text-text-body">
-              Management of Stand Alone Apartments, Simplified.
+            <p className="mt-3 text-sm text-text-body">
+              Stand Alone Apartment Management Platform.
             </p>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-text-heading">
-              Quick Links
-            </h4>
-            <ul className="mt-3 space-y-2">
-              <li>
-                <Link
-                  href="/features"
-                  className="text-sm text-text-body hover:text-primary"
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/early-access"
-                  className="text-sm text-text-body hover:text-primary"
-                >
-                  Get Started
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-text-body hover:text-primary"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm text-text-body hover:text-primary"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-sm text-text-body hover:text-primary"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold text-text-heading">
               Get in Touch
@@ -78,18 +28,28 @@ export function Footer() {
             <ul className="mt-3 space-y-2">
               <li>
                 <a
-                  href="mailto:hello@myt.community"
+                  href="mailto:hello@themyt.app"
                   className="text-sm text-text-body hover:text-primary"
                 >
-                  hello@myt.community
+                  hello@themyt.app
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-neutral-200 pt-6 text-center text-xs text-text-body">
-          &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+        <div className="mt-10 flex flex-col items-center gap-3 border-t border-neutral-200 pt-6 text-xs text-text-body sm:flex-row sm:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} Sarvapindi Systems Private Limited. All rights reserved.
+          </p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-primary">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-primary">
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
