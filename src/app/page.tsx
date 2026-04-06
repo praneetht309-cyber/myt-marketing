@@ -236,7 +236,7 @@ export default function Home() {
               },
             ].map((role) => (
               <StaggerItem key={role.label}>
-                <div className="card-hover rounded-2xl border border-neutral-200 bg-white p-8 text-center">
+                <div className="card-hover rounded-2xl border border-neutral-200 bg-surface-page p-8 text-center">
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
                     {role.icon}
                   </div>

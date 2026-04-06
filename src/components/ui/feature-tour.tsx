@@ -24,7 +24,7 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
   const totalSections = painPoints.length;
 
   return (
-    <section ref={containerRef} className="relative bg-surface-page">
+    <section ref={containerRef} className="relative bg-white">
       {/* Total height = number of sections * 100vh */}
       <div style={{ height: `${totalSections * 100}vh` }}>
         {/* Sticky container — stays in viewport while user scrolls */}
