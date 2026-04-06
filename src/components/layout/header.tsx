@@ -13,30 +13,6 @@ const MENU_LINKS = [
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
-// Watch dimensions — expanded vs pill
-const WATCH = {
-  expanded: {
-    dialSize: 88,       // logo circle diameter
-    dialSizeSm: 100,
-    bandHeight: 44,     // strip height
-    bandHeightSm: 48,
-    bandWidth: "calc(50vw - 70px)",   // each band stretches to edges
-    bandWidthSm: "calc(50vw - 76px)",
-    gap: 0,
-    mt: 10,
-  },
-  pill: {
-    dialSize: 64,
-    dialSizeSm: 72,
-    bandHeight: 40,
-    bandHeightSm: 44,
-    bandWidth: 130,
-    bandWidthSm: 160,
-    gap: 0,
-    mt: 10,
-  },
-} as const;
-
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -55,14 +31,16 @@ export function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const s = scrolled ? WATCH.pill : WATCH.expanded;
+  // Dial (logo circle) sizes
+  const dialSize = scrolled ? 64 : 88;
+  const logoSize = scrolled ? 52 : 76;
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex items-start justify-center pointer-events-none">
         <motion.div
           initial={false}
-          animate={{ marginTop: s.mt }}
+          animate={{ marginTop: 10 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="pointer-events-auto flex items-center justify-center"
         >
@@ -70,11 +48,13 @@ export function Header() {
           <motion.div
             initial={false}
             animate={{
-              width: scrolled ? WATCH.pill.bandWidth : WATCH.expanded.bandWidth,
-              height: scrolled ? WATCH.pill.bandHeight : WATCH.expanded.bandHeight,
+              width: scrolled ? 130 : "calc(50vw - 60px)",
+              height: scrolled ? 40 : 44,
+              borderTopLeftRadius: scrolled ? 9999 : 4,
+              borderBottomLeftRadius: scrolled ? 9999 : 4,
             }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex items-center justify-start rounded-l-full border border-r-0 px-4 backdrop-blur-xl sm:px-5"
+            className="flex items-center justify-start border border-r-0 px-4 backdrop-blur-xl sm:px-5"
             style={{
               backgroundColor: "rgba(233, 236, 237, 0.92)",
               borderColor: "rgba(198, 208, 212, 0.6)",
@@ -83,7 +63,7 @@ export function Header() {
           >
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1.5 text-xs font-medium text-text-heading transition-colors hover:bg-white sm:text-sm"
+              className="flex items-center gap-1.5 text-xs font-medium text-text-heading transition-colors hover:text-primary sm:text-sm"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {menuOpen ? (
@@ -126,14 +106,14 @@ export function Header() {
           <motion.div
             initial={false}
             animate={{
-              width: scrolled ? WATCH.pill.dialSize : WATCH.expanded.dialSize,
-              height: scrolled ? WATCH.pill.dialSize : WATCH.expanded.dialSize,
+              width: dialSize,
+              height: dialSize,
             }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative z-10 flex items-center justify-center rounded-full border backdrop-blur-xl"
+            className="relative z-10 flex items-center justify-center rounded-full backdrop-blur-xl"
             style={{
               backgroundColor: "rgba(233, 236, 237, 0.95)",
-              borderColor: "rgba(198, 208, 212, 0.6)",
+              border: "2px solid #083A4F",
               boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
               flexShrink: 0,
             }}
@@ -142,8 +122,8 @@ export function Header() {
               <motion.div
                 initial={false}
                 animate={{
-                  width: scrolled ? 44 : 64,
-                  height: scrolled ? 44 : 64,
+                  width: logoSize,
+                  height: logoSize,
                 }}
                 transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="relative"
@@ -163,11 +143,13 @@ export function Header() {
           <motion.div
             initial={false}
             animate={{
-              width: scrolled ? WATCH.pill.bandWidth : WATCH.expanded.bandWidth,
-              height: scrolled ? WATCH.pill.bandHeight : WATCH.expanded.bandHeight,
+              width: scrolled ? 130 : "calc(50vw - 60px)",
+              height: scrolled ? 40 : 44,
+              borderTopRightRadius: scrolled ? 9999 : 4,
+              borderBottomRightRadius: scrolled ? 9999 : 4,
             }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex items-center justify-end rounded-r-full border border-l-0 px-4 backdrop-blur-xl sm:px-5"
+            className="flex items-center justify-end border border-l-0 px-4 backdrop-blur-xl sm:px-5"
             style={{
               backgroundColor: "rgba(233, 236, 237, 0.92)",
               borderColor: "rgba(198, 208, 212, 0.6)",
