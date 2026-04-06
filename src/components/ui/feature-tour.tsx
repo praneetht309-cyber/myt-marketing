@@ -25,11 +25,11 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
 
   return (
     <section ref={containerRef} className="relative bg-white">
-      {/* Total height = number of sections * 100vh */}
-      <div style={{ height: `${totalSections * 100}vh` }}>
+      {/* Total height = number of sections * 150vh for smoother scroll */}
+      <div style={{ height: `${totalSections * 150}vh` }}>
         {/* Sticky container — stays in viewport while user scrolls */}
-        <div className="sticky top-0 flex h-dvh items-center overflow-hidden">
-          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 sm:px-6 md:flex-row md:items-center md:gap-12 lg:gap-20">
+        <div className="sticky top-0 flex h-dvh items-center overflow-hidden pt-28 sm:pt-32">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 sm:px-6 md:flex-row md:items-center md:gap-12 lg:gap-20">
             {/* Left — Text that fades in/out */}
             <div className="w-full flex-1">
               <div className="relative h-[220px] sm:h-[280px] md:h-[320px]">
@@ -48,7 +48,7 @@ export function FeatureTour({ painPoints }: FeatureTourProps) {
             </div>
 
             {/* Right — Phone with 3D tilt transitions */}
-            <div className="flex-shrink-0" style={{ perspective: 1200, maxWidth: 300 }}>
+            <div className="flex-shrink-0" style={{ perspective: 1200, maxWidth: 280 }}>
               <PhoneWithTilt
                 scrollYProgress={scrollYProgress}
                 totalSections={totalSections}
@@ -165,7 +165,7 @@ function PhoneWithTilt({
     >
       <div
         className="relative overflow-hidden rounded-[28px] border-[3px] border-neutral-700 bg-white shadow-2xl sm:rounded-[32px] md:rounded-[36px]"
-        style={{ width: "clamp(180px, 40vw, 300px)", aspectRatio: "9 / 19.5" }}
+        style={{ width: "clamp(140px, 35vw, 280px)", aspectRatio: "9 / 19.5" }}
       >
         {/* Notch */}
         <div className="absolute left-1/2 top-0 z-20 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-neutral-700" />
