@@ -30,11 +30,11 @@ const PAIN_POINTS = [
     // Replace with: /videos/send-notice.mp4
   },
   {
-    pain: "50 unread messages in society group?",
-    solution: "MYT Community Chat.",
-    detail: "Apartment discussions stay here — not buried under memes and forwards. Organised, searchable, relevant.",
-    placeholder: "Community Chat",
-    // Replace with: /videos/community-chat.mp4
+    pain: "Complaint lost in the WhatsApp group?",
+    solution: "Raise a request. Track it.",
+    detail: "Residents raise requests, Admins help resolve them. Status updates, history, nothing gets lost. No more \"I told you last month\" arguments.",
+    placeholder: "Requests & Complaints",
+    // Replace with: /videos/requests.mp4
   },
 ];
 
