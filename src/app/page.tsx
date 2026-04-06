@@ -65,7 +65,7 @@ export default function Home() {
       {/* ================================================================
           HERO — Light, warm, product-first
           ================================================================ */}
-      <section className="hero-gradient relative overflow-hidden">
+      <section className="relative overflow-hidden bg-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-12 sm:px-6 md:min-h-[calc(100dvh-4rem)] md:flex-row md:gap-16 md:py-20 lg:gap-20">
           {/* Left — Text */}
           <div className="flex-1 text-center md:text-left">
@@ -86,7 +86,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="mx-auto mt-5 max-w-lg text-base text-text-body sm:text-lg md:mx-0"
             >
-              Monthly maintenance payments, accounts, notices, and more — ONE APP!
+              Monthly Maintenance payments, Accounts, Notices and more — ONE APP!
             </motion.p>
 
             {/* Trust strip */}
