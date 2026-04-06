@@ -11,7 +11,7 @@ const PAIN_POINTS = [
   {
     pain: "Sending payment screenshots on WhatsApp?",
     solution: "Tap. Pay. Done.",
-    detail: "One tap to pay maintenance. Admin sees it instantly. No screenshots, no chasing, no confusion.",
+    detail: "One tap to record maintenance payment. \"Resident Records → Admin Approves\". Admin sees it instantly. No chasing and no confusion.",
     placeholder: "Pay Maintenance",
     // Replace with: /videos/pay-maintenance.mp4
   },
