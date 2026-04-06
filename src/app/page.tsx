@@ -165,17 +165,32 @@ export default function Home() {
       {/* ================================================================
           EMOTIONAL HOOK — Why MYT exists
           ================================================================ */}
-      <section className="bg-surface-page">
-        <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28">
+      <section style={{ backgroundColor: "#F6F4EE" }}>
+        <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
           <ScrollReveal animation="fade" direction="up">
-            <p className="text-2xl font-bold leading-relaxed text-text-heading sm:text-3xl lg:text-4xl">
-              Admins deserve appreciation{" "}
-              <span className="text-primary/40">not blame.</span>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary/50">
+              MYT — Because
             </p>
-            <p className="mt-4 text-2xl font-bold leading-relaxed text-text-heading sm:text-3xl lg:text-4xl">
-              Residents deserve transparency{" "}
-              <span className="text-primary/40">not confusion.</span>
-            </p>
+          </ScrollReveal>
+          <ScrollReveal animation="fade" direction="up" delay={0.15}>
+            <div className="mt-8">
+              <p className="text-2xl font-bold text-text-heading sm:text-3xl lg:text-4xl">
+                Admins deserve appreciation.
+              </p>
+              <p className="mt-1 text-2xl font-light italic text-primary/50 sm:text-3xl lg:text-4xl">
+                Not blame.
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade" direction="up" delay={0.3}>
+            <div className="mt-10">
+              <p className="text-2xl font-bold text-text-heading sm:text-3xl lg:text-4xl">
+                Residents deserve transparency.
+              </p>
+              <p className="mt-1 text-2xl font-light italic text-primary/50 sm:text-3xl lg:text-4xl">
+                Not confusion.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
