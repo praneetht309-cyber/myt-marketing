@@ -9,6 +9,7 @@ interface PainPoint {
   solution: string;
   detail: string;
   placeholder: string;
+  video: string;
 }
 
 interface FeatureTourProps {
@@ -66,7 +67,7 @@ function MobileFeatureTour({ painPoints }: { painPoints: PainPoint[] }) {
               >
                 <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-xl bg-neutral-700" />
                 <video
-                  src="/videos/feature-demo.mp4"
+                  src={item.video}
                   autoPlay
                   loop
                   muted
@@ -242,6 +243,7 @@ function PhoneWithTilt({
             total={totalSections}
             scrollYProgress={scrollYProgress}
             placeholder={item.placeholder}
+            video={item.video}
           />
         ))}
       </div>
@@ -256,11 +258,13 @@ function PhoneScreen({
   index,
   total,
   scrollYProgress,
+  video,
 }: {
   index: number;
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
   placeholder: string;
+  video: string;
 }) {
   const sectionSize = 1 / total;
   const start = index * sectionSize;
@@ -280,7 +284,7 @@ function PhoneScreen({
       style={{ opacity }}
     >
       <video
-        src="/videos/feature-demo.mp4"
+        src={video}
         autoPlay
         loop
         muted

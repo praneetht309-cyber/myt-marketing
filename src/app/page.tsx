@@ -13,28 +13,28 @@ const PAIN_POINTS = [
     solution: "Tap. Pay. Done.",
     detail: "One tap to record maintenance payment. \"Resident Records → Admin Approves\". Admin sees it instantly. No chasing and no confusion.",
     placeholder: "Pay Maintenance",
-    // Replace with: /videos/pay-maintenance.mp4
+    video: "/videos/paymaintenance.mp4",
   },
   {
     pain: "Still tracking accounts in Excel?",
     solution: "Automated. Always accurate.",
     detail: "Account Balance, Maintenance Payments, Monthly Expenses — all in \"Accounts → Transactions\". All live, always updated. No formulas, no errors.",
     placeholder: "Accounts Dashboard",
-    // Replace with: /videos/accounts.mp4
+    video: "/videos/accounts.mp4",
   },
   {
     pain: "Noisy neighbour at 11 PM?",
     solution: "Send a notice in 10 seconds.",
     detail: "Formal, trackable, no awkward confrontations. Pick the type, write a line, send. Send it to one resident, more residents or all residents. You choose.",
     placeholder: "Send Notice",
-    // Replace with: /videos/send-notice.mp4
+    video: "/videos/notice.mp4",
   },
   {
     pain: "Complaint lost in the WhatsApp group?",
     solution: "Raise a request. Track it.",
     detail: "Residents raise requests, Admins help resolve them. Status updates, history, nothing gets lost. No more \"I told you last month\" arguments.",
     placeholder: "Requests & Complaints",
-    // Replace with: /videos/requests.mp4
+    video: "/videos/raiserequest.mp4",
   },
 ];
 
