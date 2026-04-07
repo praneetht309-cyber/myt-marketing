@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const MENU_LINKS = [
   { label: "Features", href: "/features" },
-  { label: "Get Started", href: "/early-access" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },

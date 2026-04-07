@@ -76,10 +76,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-text-heading">Email</h3>
                       <a
-                        href="mailto:hello@myt.community"
+                        href="mailto:hello@themyt.app"
                         className="mt-1 text-sm text-primary hover:underline"
                       >
-                        hello@myt.community
+                        hello@themyt.app
                       </a>
                     </div>
                   </div>

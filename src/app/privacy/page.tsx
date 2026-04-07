@@ -237,10 +237,10 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="mt-3">
                 <a
-                  href="mailto:hello@myt.community"
+                  href="mailto:hello@themyt.app"
                   className="font-semibold text-primary hover:underline"
                 >
-                  hello@myt.community
+                  hello@themyt.app
                 </a>
               </p>
             </div>

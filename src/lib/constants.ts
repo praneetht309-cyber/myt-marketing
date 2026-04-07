@@ -8,7 +8,6 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
-  { label: "Get Started", href: "/early-access" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -26,9 +25,9 @@ export const FEATURES = [
     icon: "megaphone",
   },
   {
-    title: "Community Chat",
+    title: "Apartment Chat",
     description:
-      "Built-in community chat rooms for your apartment. Keep discussions organised and accessible to everyone.",
+      "Built-in chat rooms for your apartment. Keep discussions organised and accessible to everyone.",
     icon: "chat",
   },
   {
