@@ -54,7 +54,7 @@ const STEPS = [
   {
     number: "3",
     title: "Complete setup at your pace",
-    description: "Add Residents, add Structure, add more Financials — the app guides you step by step. No rush.",
+    description: "Build your community one piece at a time. No rush.",
     stat: { target: 100, suffix: "%", label: "your pace" },
   },
 ];

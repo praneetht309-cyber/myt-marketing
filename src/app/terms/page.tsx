@@ -160,21 +160,25 @@ export default function TermsPage() {
                 7. Roles & Permissions
               </h2>
               <p className="mt-3">
-                MYT uses a role-based permission system (admin, resident,
-                non-resident, watchman). Each role has specific capabilities:
+                MYT implements permission-based access control. Each user has
+                access appropriate to their relationship with the apartment
+                community. Different users see different features and can take
+                different actions.
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>
-                  <strong>Administrators</strong> can manage members, finances,
+                  Administrators generally manage members, finances,
                   communications, and apartment settings
                 </li>
                 <li>
-                  <strong>Residents</strong> can view information, make payments,
-                  raise requests, and participate in community activities
+                  Other users can view information, make payments, raise
+                  requests, and participate in community activities as
+                  applicable
                 </li>
                 <li>
-                  Actions are restricted based on your assigned role. Attempting
-                  to bypass permission controls is a violation of these terms.
+                  Actions are restricted based on your assigned access level.
+                  Attempting to bypass permission controls is a violation of
+                  these terms.
                 </li>
               </ul>
             </div>
