@@ -38,9 +38,9 @@ const CORE_FEATURES = [
   },
   {
     pain: "Should a resident update apartment's financials?",
-    title: "Smart Roles & Permissions",
+    title: "Roles & Permissions",
     description:
-      "Admins, owners, tenants, watchmen — everyone sees only what they should. A tenant can pay maintenance but can't manage members. An absentee owner can view financials remotely. 17 fine-grained permissions, zero configuration needed.",
+      "Admins, owners, tenants, watchmen — everyone sees only what they should. A tenant can pay maintenance but can't manage members. An absentee owner can view financials remotely. Fine-grained permissions out of the box.",
     image:
       "https://images.unsplash.com/photo-1760630101210-bcbd0ed90939?w=600&q=80",
     icon: "lock",
@@ -63,7 +63,7 @@ const MORE_FEATURES = [
   {
     title: "Instant Onboarding",
     description:
-      "6 fields. 15 seconds. Your apartment is live. Import existing data from Excel or complete setup gradually.",
+      "6 fields. 15 seconds. Your apartment is live. Guided bulk setup or manual entry — you choose your pace.",
     icon: "rocket",
   },
   {

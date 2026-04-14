@@ -125,10 +125,9 @@ export default function PrivacyPolicyPage() {
                   apartment
                 </li>
                 <li>
-                  <strong>Service providers</strong> — we use Supabase
-                  (database/auth), Google Cloud (AI parsing for onboarding), and
-                  standard notification services (SMS, email, push) to operate
-                  the platform
+                  <strong>Service providers</strong> — we use standard cloud
+                  infrastructure for database, authentication, and notification
+                  services (SMS, email, push) to operate the platform
                 </li>
                 <li>
                   <strong>Legal requirements</strong> — if required by Indian law

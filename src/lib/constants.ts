@@ -51,7 +51,7 @@ export const FEATURES = [
   {
     title: "Instant Onboarding",
     description:
-      "Onboard your apartment in 15 seconds with just 6 fields. Import existing data from Excel or set up manually.",
+      "Onboard your apartment in 15 seconds with just 6 fields. Guided bulk setup or manual entry — you choose your pace.",
     icon: "rocket",
   },
 ] as const;
