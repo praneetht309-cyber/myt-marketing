@@ -63,7 +63,7 @@ const MORE_FEATURES = [
   {
     title: "Instant Onboarding",
     description:
-      "6 fields. 15 seconds. Your apartment is live. Guided bulk setup or manual entry — you choose your pace.",
+      "Set up your apartment quickly and get going. Guided bulk setup or manual entry — you choose your pace.",
     icon: "rocket",
   },
   {

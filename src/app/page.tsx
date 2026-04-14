@@ -41,20 +41,15 @@ const PAIN_POINTS = [
 const STEPS = [
   {
     number: "1",
-    title: "Enter 6 details",
-    description: "That's it. Nothing else.",
-    fields: [
-      ["Apartment Name", "Your Name"],
-      ["Monthly Maintenance", "Your Flat #"],
-      ["Current Balance", "Total Flats"],
-    ],
-    stat: { target: 6, suffix: "", label: "fields" },
+    title: "Quick start",
+    description: "Just the essentials. Get going fast.",
+    stat: { target: 1, suffix: "", label: "Start" },
   },
   {
     number: "2",
     title: "You're inside the app",
     description: "Explore your Dashboard, Accounts, Hub — everything works seamlessly.",
-    stat: { target: 15, suffix: "s", label: "to set up" },
+    stat: { target: 2, suffix: "", label: "Explore" },
   },
   {
     number: "3",
@@ -128,9 +123,7 @@ export default function Home() {
               className="mt-3 flex justify-center md:justify-start"
             >
               <div className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white sm:gap-4 sm:px-6 sm:py-2.5">
-                <span>6 fields</span>
-                <span className="text-white/40">·</span>
-                <span>15 seconds</span>
+                <span>Quick setup</span>
                 <span className="text-white/40">·</span>
                 <span>You&apos;re live</span>
               </div>
@@ -264,9 +257,9 @@ export default function Home() {
               How it works
             </p>
             <h2 className="mt-3 text-center text-3xl font-bold text-text-heading sm:text-4xl">
-              Enter 6 details. You&apos;re inside the app in 15 seconds.
+              Get started quickly. Complete setup at your pace.
               <br />
-              <span className="text-primary/60">Complete setup at your pace.</span>
+              <span className="text-primary/60">No manuals. No training.</span>
             </h2>
           </ScrollReveal>
 
@@ -283,18 +276,6 @@ export default function Home() {
                   </div>
                   <h3 className="mt-4 text-lg font-semibold text-text-heading">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-body">{step.description}</p>
-                  {step.fields && (
-                    <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-left">
-                      {step.fields.map((row, ri) => (
-                        row.map((field, ci) => (
-                          <div key={`${ri}-${ci}`} className="flex items-center gap-1.5">
-                            <span className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/40" />
-                            <span className="text-xs text-text-body">{field}</span>
-                          </div>
-                        ))
-                      ))}
-                    </div>
-                  )}
                 </div>
               </StaggerItem>
             ))}

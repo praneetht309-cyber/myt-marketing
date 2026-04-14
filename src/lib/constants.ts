@@ -2,7 +2,7 @@ export const SITE = {
   name: "MYT",
   tagline: "Stand Alone Apartment Management Platform",
   description:
-    "MYT is a management platform built for self-managed residential communities in India. Onboard your apartment in 15 seconds.",
+    "MYT is a management platform built for self-managed residential communities in India. Quick setup. Apartment-wide tools.",
   url: "https://themyt.app",
 } as const;
 
@@ -51,13 +51,12 @@ export const FEATURES = [
   {
     title: "Instant Onboarding",
     description:
-      "Onboard your apartment in 15 seconds with just 6 fields. Guided bulk setup or manual entry — you choose your pace.",
+      "Set up your apartment quickly. Guided bulk setup or manual entry — you choose your pace.",
     icon: "rocket",
   },
 ] as const;
 
 export const HERO_STATS = [
-  { target: 15, suffix: "s", label: "To onboard" },
   { prefix: "3-", target: 300, suffix: "", label: "Residents supported" },
   { target: 100, suffix: "%", label: "Self-managed" },
 ] as const;
