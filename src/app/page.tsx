@@ -3,60 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { FeatureTour } from "@/components/ui/feature-tour";
 import { SITE } from "@/lib/constants";
 
 const PAIN_POINTS = [
   {
-    pain: "Sending payment screenshots on WhatsApp?",
+    pain: "Sending monthly maintenance payment screenshots on WhatsApp?",
     solution: "Tap. Pay. Done.",
-    detail: "One tap to record maintenance payment. \"Resident Records → Admin Approves\". Admin sees it instantly. No chasing and no confusion.",
+    detail: "Resident records → Admin Approves. Accounts updated instantly!",
     placeholder: "Pay Maintenance",
     video: "/videos/paymaintenance.mp4",
   },
   {
     pain: "Still tracking accounts in Excel?",
     solution: "Automated. Always accurate.",
-    detail: "Account Balance, Maintenance Payments, Monthly Expenses — all in \"Accounts → Transactions\". All live, always updated. No formulas, no errors.",
+    detail: "Any transaction → Accounts update live. No formulas, no errors!",
     placeholder: "Accounts Dashboard",
     video: "/videos/accounts.mp4",
   },
   {
     pain: "Noisy neighbour at 11 PM?",
     solution: "Send a notice in 10 seconds.",
-    detail: "Formal, trackable, no awkward confrontations. Pick the type, write a line, send. Send it to one resident, more residents or all residents. You choose.",
+    detail: "Write → Send to one, many, or all. Formal and trackable!",
     placeholder: "Send Notice",
     video: "/videos/notice.mp4",
   },
   {
     pain: "Complaint lost in the WhatsApp group?",
     solution: "Raise a request. Track it.",
-    detail: "Residents raise requests, Admins help resolve them. Status updates, history, nothing gets lost. No more \"I told you last month\" arguments.",
+    detail: "Resident raises → Admin resolves. Full history — no more \"I told you\"!",
     placeholder: "Requests & Complaints",
     video: "/videos/raiserequest.mp4",
-  },
-];
-
-const STEPS = [
-  {
-    number: "1",
-    title: "Quick start",
-    description: "Just the essentials. Get going fast.",
-    stat: { target: 1, suffix: "", label: "Start" },
-  },
-  {
-    number: "2",
-    title: "You're inside the app",
-    description: "Explore your Dashboard, Accounts, Hub — everything works seamlessly.",
-    stat: { target: 2, suffix: "", label: "Explore" },
-  },
-  {
-    number: "3",
-    title: "Complete setup at your pace",
-    description: "Build your community one piece at a time. No rush.",
-    stat: { target: 100, suffix: "%", label: "your pace" },
   },
 ];
 
@@ -64,172 +42,173 @@ export default function Home() {
   return (
     <>
       {/* ================================================================
-          HERO — Light, warm, product-first
+          HERO — Premium minimalist with spotlight
           ================================================================ */}
       <section className="relative overflow-hidden bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-4 py-10 sm:px-6 md:min-h-[calc(100dvh-6rem)] md:flex-row md:gap-16 md:py-10 lg:gap-20">
-          {/* Left — Text */}
-          <div className="flex-1 text-center md:text-left">
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-sm font-medium italic text-text-body/60 sm:text-base"
-            >
-              A question for Stand Alone Apartments...
-            </motion.p>
+        {/* Soft radial spotlight from top — Notion-style */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-[60vh]"
+          style={{
+            background:
+              "radial-gradient(ellipse 900px 420px at 50% -10%, rgba(8, 58, 79, 0.10), transparent 70%)",
+          }}
+        />
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-3 text-2xl leading-tight tracking-tight text-text-heading sm:text-3xl lg:text-4xl xl:text-5xl"
-            >
-              Still managing your apartment on{" "}
-              <span className="font-bold text-primary">Excel</span> and{" "}
-              <span className="font-bold text-primary">WhatsApp</span>?
-            </motion.h1>
+        {/* Faint secondary glow for depth */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-[80vh]"
+          style={{
+            background:
+              "radial-gradient(ellipse 1400px 600px at 50% -20%, rgba(195, 150, 55, 0.05), transparent 70%)",
+          }}
+        />
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-6 text-xl leading-tight text-text-heading sm:text-2xl lg:text-3xl"
-            >
-              Not Anymore.{" "}
-              <span className="text-3xl font-bold text-primary sm:text-4xl lg:text-5xl">
-                MYT
-              </span>{" "}
-              replaces both.
-            </motion.p>
-
-            {/* Trust pills — credibility before action */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="mt-8 flex justify-center md:justify-start"
-            >
-              <div className="flex flex-wrap justify-center gap-2 text-xs font-medium sm:text-sm md:justify-start">
-                {/* Built by — teal */}
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-600 bg-teal-50 px-3 py-1.5 text-teal-600 sm:px-4 sm:py-2">
-                  <svg
-                    className="h-4 w-4 flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.8}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                    />
-                  </svg>
-                  <span>Built by a standalone apartment resident</span>
-                </div>
-
-                {/* Free — indigo */}
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-600 bg-indigo-50 px-3 py-1.5 text-indigo-600 sm:px-4 sm:py-2">
-                  <svg
-                    className="h-4 w-4 flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                  <span>Free</span>
-                </div>
-
-                {/* No Ads — rose */}
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-rose-600 bg-rose-50 px-3 py-1.5 text-rose-600 sm:px-4 sm:py-2">
-                  <svg
-                    className="h-4 w-4 flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.8}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
-                    />
-                  </svg>
-                  <span>No Ads</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-14 flex flex-col items-center gap-3 md:items-start"
-            >
-              <p className="text-sm font-medium text-text-heading sm:text-base">
-                Your apartment, live in a blink.
-              </p>
-              <div className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white sm:gap-4 sm:px-6 sm:py-2.5">
-                <span>6 fields</span>
-                <span className="text-white/40">·</span>
-                <span>15 seconds</span>
-                <span className="text-white/40">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  You&apos;re live
-                  <svg
-                    className="h-4 w-4 flex-shrink-0 text-green-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.75}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                </span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right — Phone with real dashboard screenshot */}
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 md:min-h-[calc(100dvh-6rem)] md:py-28">
+          {/* DPIIT recognition — trust signal, top of hero */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex-shrink-0 phone-float"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-1.5 text-[11px] font-medium text-text-body shadow-sm backdrop-blur-sm sm:text-xs"
           >
-            <div
-              className="relative w-[220px] overflow-hidden rounded-[36px] border-[3px] border-neutral-700 shadow-2xl sm:w-[260px]"
-              style={{ aspectRatio: "9 / 19.5" }}
+            <svg
+              className="h-3.5 w-3.5 flex-shrink-0 text-primary"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
             >
-              <Image
-                src="/dashboard-screenshot.jpeg"
-                alt="MYT Dashboard"
-                fill
-                className="object-cover object-top"
-                priority
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
               />
-            </div>
+            </svg>
+            <span>
+              Startup recognized by{" "}
+              <span className="font-semibold text-text-heading">
+                Government of India
+              </span>
+            </span>
           </motion.div>
+
+          {/* Targeting kicker */}
+          <motion.p
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-10 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70 sm:text-xs sm:tracking-[0.35em]"
+          >
+            Built only for Stand Alone Apartments
+          </motion.p>
+
+          {/* Setup question — smaller, reads as the hook */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-6 text-xl leading-snug text-text-heading sm:text-2xl lg:text-3xl"
+          >
+            Still using{" "}
+            <span className="font-bold text-primary">Excel</span> and{" "}
+            <span className="font-bold text-primary">WhatsApp</span> to manage
+            your apartment?
+          </motion.p>
+
+          {/* H1 — the thesis, the answer, the claim */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-4 text-3xl leading-[1.15] tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
+          >
+            <span className="font-bold text-primary">MYT</span>{" "}
+            <span className="text-text-heading/60">replaces both.</span>
+          </motion.h1>
+
+          {/* Subhead — supporting claim, restrained */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-8 max-w-2xl text-base leading-relaxed text-text-body sm:text-lg lg:text-xl"
+          >
+            <p>
+              Maintenance, Accounts, Complaints, Communications —{" "}
+              <span className="font-semibold text-text-heading">ONE App</span>
+              .
+            </p>
+            <p className="mt-5">Create your apartment in less than 15 seconds.</p>
+          </motion.div>
+
+          {/* Primary CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            className="mt-12"
+          >
+            <Link
+              href="/download"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-[0_10px_30px_-10px_rgba(8,58,79,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(8,58,79,0.55)] sm:text-lg"
+            >
+              Create My Apartment
+              <svg
+                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
+          </motion.div>
+
+          {/* Credential kicker — reassurance at the conversion moment */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-6 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70 sm:text-xs sm:tracking-[0.35em]"
+          >
+            Built by a stand alone apartment resident
+          </motion.p>
         </div>
 
-        {/* Scroll hint */}
+        {/* Scroll hint — desktop-only; on mobile next section peeks anyway */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:flex"
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-text-body/40">Scroll to explore</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-text-body/40">
+              Scroll
+            </span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             >
-              <svg className="h-5 w-5 text-text-body/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              <svg
+                className="h-4 w-4 text-text-body/30"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
               </svg>
             </motion.div>
           </div>
@@ -237,7 +216,12 @@ export default function Home() {
       </section>
 
       {/* ================================================================
-          EMOTIONAL HOOK — Why MYT exists
+          FEATURE TOUR — Scroll-driven sticky phone with 3D tilt
+          ================================================================ */}
+      <FeatureTour painPoints={PAIN_POINTS} />
+
+      {/* ================================================================
+          EMOTIONAL HOOK — Why MYT exists (lands after product proof)
           ================================================================ */}
       <section className="bg-white">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
@@ -271,95 +255,23 @@ export default function Home() {
               </p>
             </div>
           </ScrollReveal>
-          <ScrollReveal animation="fade" direction="up" delay={0.6}>
-            <div className="mt-16 flex flex-col items-center gap-6">
-              <div className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-64" />
-              <div className="inline-block rounded-full bg-orange-100 px-5 py-2.5 shadow-sm sm:px-7 sm:py-3">
-                <p
-                  className="text-[10px] font-bold uppercase tracking-widest text-orange-700 sm:text-xs sm:tracking-[0.25em] lg:text-sm lg:tracking-[0.3em]"
-                  style={{ wordSpacing: "0.6em" }}
-                >
-                  We serve residents who were ignored for 20+ years
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
       {/* ================================================================
-          FEATURE TOUR — Scroll-driven sticky phone with 3D tilt
+          MISSION BAND — dark contrast closer for the emotional hook
           ================================================================ */}
-      <FeatureTour painPoints={PAIN_POINTS} />
-
-      {/* ================================================================
-          AND MORE — teaser for remaining features
-          ================================================================ */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+      <section className="bg-primary">
+        <div className="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <ScrollReveal animation="fade" direction="up">
-            <div className="mx-auto grid max-w-md grid-cols-2 gap-4">
-              {[
-                { name: "Announcements", icon: "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.75.75 0 0 1-1.025-.275l-.107-.19a18.3 18.3 0 0 1-1.733-4.209m3-6.165A24 24 0 0 1 19.5 4.26a.5.5 0 0 1 .735.434v14.612a.5.5 0 0 1-.735.434A24 24 0 0 0 10.34 17.16" },
-                { name: "Reminders", icon: "M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" },
-                { name: "Polls", icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" },
-                { name: "Resident Directory", icon: "M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" },
-              ].map((feature) => (
-                <div key={feature.name} className="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-surface-page px-4 py-3">
-                  <svg className="h-5 w-5 flex-shrink-0 text-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
-                  </svg>
-                  <span className="text-sm font-medium text-text-heading">{feature.name}</span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-4 text-sm text-text-body">and many more</p>
-            <Link
-              href="/features"
-              className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
-            >
-              Explore all features
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ================================================================
-          HOW IT WORKS — 3 steps with animated counters
-          ================================================================ */}
-      <section className="border-t border-neutral-200 bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <ScrollReveal animation="fade" direction="up">
-            <p className="text-center text-xs font-semibold uppercase tracking-widest text-primary/50">
-              How it works
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-300/80 sm:text-xs sm:tracking-[0.35em]">
+              Our Mission
             </p>
-            <h2 className="mt-3 text-center text-3xl font-bold text-text-heading sm:text-4xl">
-              Get started quickly. Complete setup at your pace.
-              <br />
-              <span className="text-primary/60">No manuals. No training.</span>
-            </h2>
+            <p className="mt-6 text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl xl:text-5xl">
+              We serve residents ignored for{" "}
+              <span className="text-amber-300">20+ years</span>.
+            </p>
           </ScrollReveal>
-
-          <StaggerContainer className="mt-16 grid gap-8 md:grid-cols-3" staggerDelay={0.15}>
-            {STEPS.map((step) => (
-              <StaggerItem key={step.number}>
-                <div className="card-hover relative rounded-2xl border border-neutral-200 bg-surface-page p-8 text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/5">
-                    <AnimatedCounter
-                      target={step.stat.target}
-                      suffix={step.stat.suffix}
-                      className="text-2xl font-bold text-primary"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-text-heading">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-body">{step.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
 
@@ -370,56 +282,13 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <ScrollReveal animation="scale">
             <h2 className="text-3xl font-bold text-text-heading sm:text-4xl">
-              Built for apartments with <span className="text-primary">3, 10, 30 or 300</span> flats.
+              Built for apartments with <span className="text-primary">3, 10, 15, 20 or 100</span> flats.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-lg text-text-body">
               Whether you have one block or ten. One Admin or many Admins.
               MYT adapts to your apartment — not the other way around.
             </p>
           </ScrollReveal>
-
-          <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-3" staggerDelay={0.12}>
-            {[
-              {
-                label: "Admins",
-                desc: "Full control over finances, notices, and apartment settings. Built to reduce your workload.",
-                icon: (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  </svg>
-                ),
-              },
-              {
-                label: "Owners",
-                desc: "Pay maintenance, vote on polls, view accounts, and stay informed about your building.",
-                icon: (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                  </svg>
-                ),
-              },
-              {
-                label: "Tenants",
-                desc: "Raise requests, join apartment chat, get notices — everything you need as a resident.",
-                icon: (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                  </svg>
-                ),
-              },
-            ].map((role) => (
-              <StaggerItem key={role.label}>
-                <div className="card-hover rounded-2xl border border-neutral-200 bg-surface-page p-8 text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
-                    {role.icon}
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold text-primary">{role.label}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-body">{role.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
 

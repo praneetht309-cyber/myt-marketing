@@ -157,10 +157,10 @@ export function Header() {
             }}
           >
             <Link
-              href="/download"
+              href="/features"
               className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
             >
-              Download
+              Features
             </Link>
           </motion.div>
         </motion.div>
