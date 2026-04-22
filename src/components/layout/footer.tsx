@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -38,17 +39,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-3 border-t border-neutral-200 pt-6 text-xs text-text-body sm:flex-row sm:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} Sarvapindi Systems Private Limited. All rights reserved.
+        <div className="mt-10 border-t border-neutral-200 pt-6 text-xs text-text-body">
+          <p className="text-center sm:text-left">
+            Recognized by DPIIT, Govt. of India ·{" "}
+            <span className="font-medium text-text-heading">
+              {SITE.dpiitRecognition}
+            </span>
           </p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-primary">
-              Terms & Conditions
-            </Link>
+          <div className="mt-3 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+            <p>
+              &copy; {new Date().getFullYear()} Sarvapindi Systems Private Limited. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="hover:text-primary">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-primary">
+                Terms & Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { FeatureTour } from "@/components/ui/feature-tour";
+import { SITE } from "@/lib/constants";
 
 const PAIN_POINTS = [
   {
@@ -82,50 +83,112 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-3 text-3xl font-bold leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
+              className="mt-3 text-2xl leading-tight tracking-tight text-text-heading sm:text-3xl lg:text-4xl xl:text-5xl"
             >
               Still managing your apartment on{" "}
-              <span className="text-primary">Excel</span> and{" "}
-              <span className="text-primary">WhatsApp</span>?
+              <span className="font-bold text-primary">Excel</span> and{" "}
+              <span className="font-bold text-primary">WhatsApp</span>?
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mx-auto mt-5 max-w-lg text-xs text-text-body sm:text-sm md:mx-0"
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-6 text-xl leading-tight text-text-heading sm:text-2xl lg:text-3xl"
             >
-              Monthly Maintenance payments, Accounts, Notices and more — ONE APP!
+              Not Anymore.{" "}
+              <span className="text-3xl font-bold text-primary sm:text-4xl lg:text-5xl">
+                MYT
+              </span>{" "}
+              replaces both.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-3 text-base font-bold text-text-heading sm:text-lg lg:text-xl"
-            >
-              MYT — Built for Stand Alone Apartments.
-            </motion.p>
-
-            {/* Trust strip */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="mt-8 text-center text-sm font-medium text-text-heading md:text-left"
-            >
-              Creating your apartment in MYT is very easy!
-            </motion.p>
+            {/* Trust pills — credibility before action */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-3 flex justify-center md:justify-start"
+              transition={{ duration: 0.6, delay: 0.55 }}
+              className="mt-8 flex justify-center md:justify-start"
             >
+              <div className="flex flex-wrap justify-center gap-2 text-xs font-medium sm:text-sm md:justify-start">
+                {/* Built by — teal */}
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-600 bg-teal-50 px-3 py-1.5 text-teal-600 sm:px-4 sm:py-2">
+                  <svg
+                    className="h-4 w-4 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.8}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg>
+                  <span>Built by a standalone apartment resident</span>
+                </div>
+
+                {/* Free — indigo */}
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-600 bg-indigo-50 px-3 py-1.5 text-indigo-600 sm:px-4 sm:py-2">
+                  <svg
+                    className="h-4 w-4 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span>Free</span>
+                </div>
+
+                {/* No Ads — rose */}
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-rose-600 bg-rose-50 px-3 py-1.5 text-rose-600 sm:px-4 sm:py-2">
+                  <svg
+                    className="h-4 w-4 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.8}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
+                    />
+                  </svg>
+                  <span>No Ads</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-14 flex flex-col items-center gap-3 md:items-start"
+            >
+              <p className="text-sm font-medium text-text-heading sm:text-base">
+                Your apartment, live in a blink.
+              </p>
               <div className="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2 text-sm font-medium text-white sm:gap-4 sm:px-6 sm:py-2.5">
-                <span>Quick setup</span>
+                <span>6 fields</span>
                 <span className="text-white/40">·</span>
-                <span>You&apos;re live</span>
+                <span>15 seconds</span>
+                <span className="text-white/40">·</span>
+                <span className="inline-flex items-center gap-1.5">
+                  You&apos;re live
+                  <svg
+                    className="h-4 w-4 flex-shrink-0 text-green-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.75}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </span>
               </div>
             </motion.div>
           </div>
@@ -176,32 +239,49 @@ export default function Home() {
       {/* ================================================================
           EMOTIONAL HOOK — Why MYT exists
           ================================================================ */}
-      <section style={{ backgroundColor: "#F6F4EE" }}>
+      <section className="bg-white">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
-          <ScrollReveal animation="fade" direction="up">
-            <p className="text-base tracking-widest text-primary/50 sm:text-lg">
-              <span className="font-bold text-primary">MYT</span>{" "}
-              <span className="font-medium">— Because</span>
-            </p>
-          </ScrollReveal>
           <ScrollReveal animation="fade" direction="up" delay={0.15}>
-            <div className="mt-8">
-              <p className="text-2xl font-bold text-text-heading sm:text-3xl lg:text-4xl">
-                Admins deserve appreciation.
+            <div>
+              <p className="text-xl text-text-heading sm:text-2xl lg:text-3xl">
+                Admins deserve <span className="font-bold">appreciation</span>.
               </p>
-              <p className="mt-1 text-2xl font-light italic text-primary/50 sm:text-3xl lg:text-4xl">
+              <p className="mt-1 text-xl font-light italic text-primary/50 sm:text-2xl lg:text-3xl">
                 Not blame.
               </p>
             </div>
           </ScrollReveal>
           <ScrollReveal animation="fade" direction="up" delay={0.3}>
             <div className="mt-10">
-              <p className="text-2xl font-bold text-text-heading sm:text-3xl lg:text-4xl">
-                Residents deserve transparency.
+              <p className="text-xl text-text-heading sm:text-2xl lg:text-3xl">
+                Residents deserve <span className="font-bold">transparency</span>.
               </p>
-              <p className="mt-1 text-2xl font-light italic text-primary/50 sm:text-3xl lg:text-4xl">
+              <p className="mt-1 text-xl font-light italic text-primary/50 sm:text-2xl lg:text-3xl">
                 Not confusion.
               </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade" direction="up" delay={0.45}>
+            <div className="mt-10">
+              <p className="text-xl text-text-heading sm:text-2xl lg:text-3xl">
+                Stand Alone Apartments deserve <span className="font-bold">MYT</span>.
+              </p>
+              <p className="mt-1 text-xl font-light italic text-primary/50 sm:text-2xl lg:text-3xl">
+                Not Excel.
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade" direction="up" delay={0.6}>
+            <div className="mt-16 flex flex-col items-center gap-6">
+              <div className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-64" />
+              <div className="inline-block rounded-full bg-orange-100 px-5 py-2.5 shadow-sm sm:px-7 sm:py-3">
+                <p
+                  className="text-[10px] font-bold uppercase tracking-widest text-orange-700 sm:text-xs sm:tracking-[0.25em] lg:text-sm lg:tracking-[0.3em]"
+                  style={{ wordSpacing: "0.6em" }}
+                >
+                  We serve residents who were ignored for 20+ years
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -359,6 +439,43 @@ export default function Home() {
             <p className="mt-5 text-lg font-semibold text-white">
               Start with MYT.
             </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
+              {/* Google Play — live */}
+              <a
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get MYT on Google Play"
+                className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <Image
+                  src="/badges/google-play-badge.png"
+                  alt="Get it on Google Play"
+                  width={220}
+                  height={66}
+                  className="h-16 w-auto"
+                  unoptimized
+                />
+              </a>
+
+              {/* App Store — coming soon. Height tuned smaller to match Google Play's visible pill (Google badge has safe-zone padding, Apple doesn't). */}
+              <div
+                aria-disabled="true"
+                className="relative inline-block cursor-not-allowed opacity-70"
+              >
+                <Image
+                  src="/badges/app-store-badge.svg"
+                  alt="Download on the App Store (coming soon)"
+                  width={140}
+                  height={46}
+                  className="h-[46px] w-auto"
+                  unoptimized
+                />
+                <span className="absolute -right-2 -top-2 inline-flex items-center rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary shadow-md">
+                  Coming soon
+                </span>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>

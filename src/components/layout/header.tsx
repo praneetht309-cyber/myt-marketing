@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MENU_LINKS = [
+  { label: "Download", href: "/download" },
   { label: "Features", href: "/features" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" },
@@ -156,10 +157,10 @@ export function Header() {
             }}
           >
             <Link
-              href="/features"
+              href="/download"
               className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
             >
-              Features
+              Download
             </Link>
           </motion.div>
         </motion.div>

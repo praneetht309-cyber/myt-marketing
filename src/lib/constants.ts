@@ -4,6 +4,9 @@ export const SITE = {
   description:
     "MYT is a management platform built for self-managed residential communities in India. Quick setup. Apartment-wide tools.",
   url: "https://themyt.app",
+  playStoreUrl:
+    "https://play.google.com/store/apps/details?id=com.themyt.app",
+  dpiitRecognition: "DIPP256256",
 } as const;
 
 export const NAV_LINKS = [
