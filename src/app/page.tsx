@@ -60,7 +60,7 @@ export default function Home() {
           ================================================================ */}
       <section
         className="relative -mt-24 overflow-hidden pt-24"
-        style={{ backgroundColor: "#FAF6ED" }}
+        style={{ backgroundColor: "#FCF9F3" }}
       >
         {/* Warm cream hero bg — matches the pill header bands for visual
             unity. Flat tint, no gradients (those tested poorly). */}
