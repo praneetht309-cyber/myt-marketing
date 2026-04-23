@@ -28,7 +28,7 @@ const PAIN_POINTS = [
   },
   {
     pain: "Still tracking accounts in Excel?",
-    solution: "Automated. Always accurate.",
+    solution: "Automated. Live. Accurate.",
     detail: "Any transaction → Accounts update live. No formulas, no errors!",
     placeholder: "Accounts Dashboard",
     video: "/videos/accounts.mp4",
@@ -58,9 +58,12 @@ export default function Home() {
       {/* ================================================================
           HERO — Premium minimalist with spotlight
           ================================================================ */}
-      <section className="relative -mt-24 overflow-hidden bg-white pt-24">
-        {/* Plain white hero — gradient washes removed per feedback. Section
-            still extends up behind the transparent header (-mt-24 + pt-24). */}
+      <section
+        className="relative -mt-24 overflow-hidden pt-24"
+        style={{ backgroundColor: "#FAF6ED" }}
+      >
+        {/* Warm cream hero bg — matches the pill header bands for visual
+            unity. Flat tint, no gradients (those tested poorly). */}
 
         <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 md:min-h-[calc(100dvh-6rem)] md:py-16">
           {/* Twin-credential pills — seal moved to hero header, so these
@@ -109,9 +112,9 @@ export default function Home() {
               MYT
             </span>{" "}
             <span className="text-text-heading">
-              replaces{" "}
+              does it{" "}
               <span className="relative inline-block">
-                both
+                all
                 <svg
                   aria-hidden
                   viewBox="0 0 180 14"
@@ -139,8 +142,8 @@ export default function Home() {
             className="mt-8 max-w-2xl text-base leading-relaxed text-text-body sm:text-lg lg:text-xl"
           >
             <p>
-              Your apartment&apos;s maintenance, accounts, complaints, and
-              chat —{" "}
+              Your apartment&apos;s maintenance, accounts, complaints, chat,
+              and more —{" "}
               <span className="font-semibold text-text-heading">handled</span>.
             </p>
           </motion.div>
@@ -238,7 +241,7 @@ export default function Home() {
                 For Residents
               </p>
               <h2 className="mt-6 text-2xl font-bold leading-tight tracking-tight text-text-heading sm:text-3xl lg:text-4xl">
-                You didn&apos;t ask for another app. We know.
+                Finally, an app for your apartment.
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-body sm:text-lg">
                 Got a WhatsApp invitation from your admin, or have a joining
@@ -290,7 +293,7 @@ export default function Home() {
                   Pay from your phone
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-text-body">
-                  No cash. No cheques. No chasing your admin for receipts.
+                  No cash. No registers. No WhatsApp screenshots.
                 </p>
               </div>
 
@@ -312,7 +315,7 @@ export default function Home() {
                   Complaints that don&apos;t get lost
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-text-body">
-                  Logged, tracked, resolved — not buried in a WhatsApp thread.
+                  Logged, tracked, resolved — not buried in a WhatsApp group.
                 </p>
               </div>
 
@@ -334,8 +337,8 @@ export default function Home() {
                   Your voice counts
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-text-body">
-                  Polls, announcements, updates — heard, not buried in a
-                  group.
+                  Polls, announcements, updates — heard, not silenced in
+                  noise.
                 </p>
               </div>
             </div>
@@ -453,10 +456,7 @@ export default function Home() {
                 </span>{' '}
                 is the app my building uses today.
               </p>
-              <p>
-                MYT is free to use. Apartments shouldn&apos;t pay to manage
-                themselves.
-              </p>
+              <p>MYT is free to use.</p>
               <p>
                 Trust isn&apos;t a tagline for us — it&apos;s the operating system.
                 No ads. No data sales. Your data is yours.
@@ -464,9 +464,8 @@ export default function Home() {
             </div>
             <div className="mt-8 text-right">
               <p className="text-base font-semibold text-text-heading">
-                — Praneeth
+                — Founder, MYT
               </p>
-              <p className="mt-1 text-sm text-text-body/70">Founder, MYT</p>
             </div>
           </ScrollReveal>
         </div>
@@ -516,7 +515,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Hosted in India */}
+              {/* Data stored in India */}
               <div className="text-center">
                 <div
                   className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-sm"
@@ -525,10 +524,10 @@ export default function Home() {
                   <MapPin className="h-5 w-5" strokeWidth={2} />
                 </div>
                 <p className="mt-4 text-sm font-bold tracking-tight text-text-heading">
-                  Hosted in India
+                  Data stored in India
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-text-body">
-                  Your data stays home.
+                  Your records stay home.
                 </p>
               </div>
 
@@ -560,7 +559,7 @@ export default function Home() {
                   Export anytime
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-text-body">
-                  Your records are yours.
+                  Your data is yours.
                 </p>
               </div>
             </div>
@@ -599,10 +598,6 @@ export default function Home() {
               <h2 className="mx-auto mt-6 max-w-3xl text-2xl font-semibold leading-snug text-text-heading sm:text-3xl lg:text-4xl">
                 Questions you&apos;ll ask. Answered honestly.
               </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-text-body sm:text-lg">
-                From the person who built MYT and lives in a stand alone
-                apartment too.
-              </p>
             </div>
           </ScrollReveal>
 

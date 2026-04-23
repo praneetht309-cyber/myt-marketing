@@ -75,8 +75,8 @@ export function Header() {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex items-center justify-start border border-r-0 px-4 backdrop-blur-xl sm:px-5"
               style={{
-                backgroundColor: "rgba(233, 236, 237, 0.92)",
-                borderColor: "rgba(198, 208, 212, 0.6)",
+                backgroundColor: "rgba(252, 249, 243, 0.92)",
+                borderColor: "rgba(214, 200, 176, 0.5)",
                 boxShadow: "-4px 4px 16px rgba(0, 0, 0, 0.06)",
               }}
             >
@@ -136,7 +136,7 @@ export function Header() {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="relative z-10 flex items-center justify-center rounded-full backdrop-blur-xl"
               style={{
-                backgroundColor: "rgba(233, 236, 237, 0.95)",
+                backgroundColor: "rgba(252, 249, 243, 0.95)",
                 border: "2px solid #083A4F",
                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
                 flexShrink: 0,
@@ -150,7 +150,7 @@ export function Header() {
                   className="relative"
                 >
                   <Image
-                    src="/logo.png"
+                    src="/myt-logo.svg"
                     alt="MYT"
                     fill
                     className="object-contain"
@@ -172,8 +172,8 @@ export function Header() {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex items-center justify-end border border-l-0 px-4 backdrop-blur-xl sm:px-5"
               style={{
-                backgroundColor: "rgba(233, 236, 237, 0.92)",
-                borderColor: "rgba(198, 208, 212, 0.6)",
+                backgroundColor: "rgba(252, 249, 243, 0.92)",
+                borderColor: "rgba(214, 200, 176, 0.5)",
                 boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.06)",
               }}
             >
@@ -188,63 +188,62 @@ export function Header() {
         </motion.div>
 
         {/* ============================================================
-            HERO HEADER — clean white / transparent with centered seal.
+            HERO HEADER — simple layout: MYT logo left, hamburger right.
             Visible only on homepage when scrollY ≈ 0.
-            Nothing on left (empty), seal in center, hamburger on right.
+            (Govt seal SVG kept at /public/govt-seal.svg for later use.)
             ============================================================ */}
         <motion.div
           animate={{ opacity: showHeroHeader ? 1 : 0 }}
           transition={{ duration: 0.3 }}
           style={{ pointerEvents: showHeroHeader ? "auto" : "none" }}
-          className="absolute top-0 left-0 right-0 grid grid-cols-3 items-center px-4 py-2 sm:px-8 sm:py-3"
+          className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 sm:px-8 sm:py-4"
         >
-          {/* Left: empty */}
-          <div />
-
-          {/* Center: seal */}
-          <div className="flex justify-center">
+          {/* Left: MYT logo — links to home */}
+          <Link
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            aria-label="MYT home"
+          >
             <Image
-              src="/govt-seal.svg"
-              alt="MYT — Recognized by Government of India"
-              width={96}
-              height={96}
-              className="h-20 w-20 sm:h-24 sm:w-24"
+              src="/myt-logo.svg"
+              alt="MYT"
+              width={80}
+              height={80}
+              className="h-16 w-16 object-contain sm:h-20 sm:w-20"
               priority
             />
-          </div>
+          </Link>
 
           {/* Right: hamburger icon */}
-          <div className="flex justify-end">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-text-heading transition-colors hover:bg-primary/5 hover:text-primary sm:h-11 sm:w-11"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                {menuOpen ? (
-                  <motion.div
-                    key="close-hero"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <XIcon className="h-6 w-6" strokeWidth={2} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu-hero"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <MenuIcon className="h-6 w-6" strokeWidth={2} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
-          </div>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Open menu"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-text-heading transition-colors hover:bg-primary/5 hover:text-primary sm:h-11 sm:w-11"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.div
+                  key="close-hero"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <XIcon className="h-6 w-6" strokeWidth={2} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu-hero"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <MenuIcon className="h-6 w-6" strokeWidth={2} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
         </motion.div>
       </header>
 

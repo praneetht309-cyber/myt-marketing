@@ -10,11 +10,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/logo.png"
+              src="/myt-logo.svg"
               alt="MYT"
-              width={160}
-              height={48}
-              className="h-14 w-auto sm:h-16"
+              width={64}
+              height={64}
+              className="h-14 w-14 object-contain sm:h-16 sm:w-16"
             />
             <p className="mt-3 text-sm text-text-body">
               Stand Alone Apartment Management Platform.
