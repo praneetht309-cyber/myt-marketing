@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 
 const MENU_LINKS = [
   { label: "Download", href: "/download" },
@@ -16,6 +18,11 @@ const MENU_LINKS = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
+  // Hero header only shows on homepage when user hasn't scrolled yet.
+  const showHeroHeader = isHome && !scrolled;
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 50);
@@ -28,141 +35,216 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
-  // Dial (logo circle) sizes
+  // Dial (logo circle) sizes — for the pill header
   const dialSize = scrolled ? 64 : 88;
   const logoSize = scrolled ? 52 : 76;
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-start justify-center pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+        {/* ============================================================
+            PILL HEADER — the default watch-dial design.
+            Visible when scrolled, or on any non-homepage route.
+            ============================================================ */}
         <motion.div
-          initial={false}
-          animate={{ marginTop: 10 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="pointer-events-auto flex items-center justify-center"
+          animate={{ opacity: showHeroHeader ? 0 : 1 }}
+          transition={{ duration: 0.3 }}
+          style={{ pointerEvents: showHeroHeader ? "none" : "auto" }}
+          className="absolute top-0 left-0 right-0 flex items-start justify-center"
         >
-          {/* Left band */}
           <motion.div
             initial={false}
-            animate={{
-              width: scrolled ? 130 : "calc(50vw - 60px)",
-              height: scrolled ? 40 : 44,
-              borderTopLeftRadius: scrolled ? 9999 : 4,
-              borderBottomLeftRadius: scrolled ? 9999 : 4,
-            }}
+            animate={{ marginTop: 10 }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex items-center justify-start border border-r-0 px-4 backdrop-blur-xl sm:px-5"
-            style={{
-              backgroundColor: "rgba(233, 236, 237, 0.92)",
-              borderColor: "rgba(198, 208, 212, 0.6)",
-              boxShadow: "-4px 4px 16px rgba(0, 0, 0, 0.06)",
-            }}
+            className="flex items-center justify-center"
           >
+            {/* Left band */}
+            <motion.div
+              initial={false}
+              animate={{
+                width: scrolled ? 130 : "calc(50vw - 60px)",
+                height: scrolled ? 40 : 44,
+                borderTopLeftRadius: scrolled ? 9999 : 4,
+                borderBottomLeftRadius: scrolled ? 9999 : 4,
+              }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex items-center justify-start border border-r-0 px-4 backdrop-blur-xl sm:px-5"
+              style={{
+                backgroundColor: "rgba(233, 236, 237, 0.92)",
+                borderColor: "rgba(198, 208, 212, 0.6)",
+                boxShadow: "-4px 4px 16px rgba(0, 0, 0, 0.06)",
+              }}
+            >
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="flex items-center gap-1.5 text-xs font-medium text-text-heading transition-colors hover:text-primary sm:text-sm"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {menuOpen ? (
+                    <motion.svg
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </motion.svg>
+                  ) : (
+                    <motion.svg
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                      />
+                    </motion.svg>
+                  )}
+                </AnimatePresence>
+                Menu
+              </button>
+            </motion.div>
+
+            {/* Center dial — MYT logo */}
+            <motion.div
+              initial={false}
+              animate={{ width: dialSize, height: dialSize }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative z-10 flex items-center justify-center rounded-full backdrop-blur-xl"
+              style={{
+                backgroundColor: "rgba(233, 236, 237, 0.95)",
+                border: "2px solid #083A4F",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                flexShrink: 0,
+              }}
+            >
+              <Link href="/" onClick={() => setMenuOpen(false)}>
+                <motion.div
+                  initial={false}
+                  animate={{ width: logoSize, height: logoSize }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="relative"
+                >
+                  <Image
+                    src="/logo.png"
+                    alt="MYT"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
+              </Link>
+            </motion.div>
+
+            {/* Right band — Features link */}
+            <motion.div
+              initial={false}
+              animate={{
+                width: scrolled ? 130 : "calc(50vw - 60px)",
+                height: scrolled ? 40 : 44,
+                borderTopRightRadius: scrolled ? 9999 : 4,
+                borderBottomRightRadius: scrolled ? 9999 : 4,
+              }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex items-center justify-end border border-l-0 px-4 backdrop-blur-xl sm:px-5"
+              style={{
+                backgroundColor: "rgba(233, 236, 237, 0.92)",
+                borderColor: "rgba(198, 208, 212, 0.6)",
+                boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.06)",
+              }}
+            >
+              <Link
+                href="/features"
+                className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
+              >
+                Features
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* ============================================================
+            HERO HEADER — clean white / transparent with centered seal.
+            Visible only on homepage when scrollY ≈ 0.
+            Nothing on left (empty), seal in center, hamburger on right.
+            ============================================================ */}
+        <motion.div
+          animate={{ opacity: showHeroHeader ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          style={{ pointerEvents: showHeroHeader ? "auto" : "none" }}
+          className="absolute top-0 left-0 right-0 grid grid-cols-3 items-center px-4 py-2 sm:px-8 sm:py-3"
+        >
+          {/* Left: empty */}
+          <div />
+
+          {/* Center: seal */}
+          <div className="flex justify-center">
+            <Image
+              src="/govt-seal.svg"
+              alt="MYT — Recognized by Government of India"
+              width={96}
+              height={96}
+              className="h-20 w-20 sm:h-24 sm:w-24"
+              priority
+            />
+          </div>
+
+          {/* Right: hamburger icon */}
+          <div className="flex justify-end">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex items-center gap-1.5 text-xs font-medium text-text-heading transition-colors hover:text-primary sm:text-sm"
+              aria-label="Open menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-text-heading transition-colors hover:bg-primary/5 hover:text-primary sm:h-11 sm:w-11"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {menuOpen ? (
-                  <motion.svg
-                    key="close"
+                  <motion.div
+                    key="close-hero"
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </motion.svg>
+                    <XIcon className="h-6 w-6" strokeWidth={2} />
+                  </motion.div>
                 ) : (
-                  <motion.svg
-                    key="menu"
+                  <motion.div
+                    key="menu-hero"
                     initial={{ rotate: 90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                  </motion.svg>
+                    <MenuIcon className="h-6 w-6" strokeWidth={2} />
+                  </motion.div>
                 )}
               </AnimatePresence>
-              Menu
             </button>
-          </motion.div>
-
-          {/* Center dial — the watch face with logo */}
-          <motion.div
-            initial={false}
-            animate={{
-              width: dialSize,
-              height: dialSize,
-            }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative z-10 flex items-center justify-center rounded-full backdrop-blur-xl"
-            style={{
-              backgroundColor: "rgba(233, 236, 237, 0.95)",
-              border: "2px solid #083A4F",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
-              flexShrink: 0,
-            }}
-          >
-            <Link href="/" onClick={() => setMenuOpen(false)}>
-              <motion.div
-                initial={false}
-                animate={{
-                  width: logoSize,
-                  height: logoSize,
-                }}
-                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                className="relative"
-              >
-                <Image
-                  src="/logo.png"
-                  alt="MYT"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </motion.div>
-            </Link>
-          </motion.div>
-
-          {/* Right band */}
-          <motion.div
-            initial={false}
-            animate={{
-              width: scrolled ? 130 : "calc(50vw - 60px)",
-              height: scrolled ? 40 : 44,
-              borderTopRightRadius: scrolled ? 9999 : 4,
-              borderBottomRightRadius: scrolled ? 9999 : 4,
-            }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex items-center justify-end border border-l-0 px-4 backdrop-blur-xl sm:px-5"
-            style={{
-              backgroundColor: "rgba(233, 236, 237, 0.92)",
-              borderColor: "rgba(198, 208, 212, 0.6)",
-              boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.06)",
-            }}
-          >
-            <Link
-              href="/features"
-              className="text-xs font-medium text-text-body transition-colors hover:text-primary sm:text-sm"
-            >
-              Features
-            </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </header>
 
@@ -204,7 +286,7 @@ export function Header() {
       </AnimatePresence>
 
       {/* Spacer to offset fixed header */}
-      <div className="h-24 sm:h-20" />
+      <div className="h-24" />
     </>
   );
 }

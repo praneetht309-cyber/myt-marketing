@@ -27,6 +27,24 @@
   --color-neutral-300: #D4D4D4;
   --color-neutral-600: #5A5A5A;
   --color-neutral-700: #2E2E2E;
+
+  /* Marketing-site accent pastels (not in app; marketing only) */
+  --color-coral-light: #FCE4E0;
+  --color-coral: #E08471;
+  --color-coral-deep: #C2624F;
+  --color-sage-light: #E5EFE5;
+  --color-sage: #7AA37F;
+  --color-sage-deep: #567159;
+  --color-lavender-light: #EAE5F4;
+  --color-lavender: #8E80B7;
+  --color-lavender-deep: #6A5C95;
+  --color-peach-light: #FDEBD9;
+  --color-peach: #E5A775;
+  --color-peach-deep: #BF8251;
+  --color-sky-light: #DDE9F0;
+  --color-sky: #7BA2BD;
+  --color-sky-deep: #5282A4;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-lora: "Lora", Georgia, serif;
   --font-roboto-slab: "Roboto Slab", Georgia, serif;
@@ -155,6 +173,49 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   .phone-float {
+    animation: none;
+  }
+}
+
+/* Hero ambient motion — very slow drift + subtle breathing on peach/sky washes.
+   Different periods (22s / 28s) so they never sync — reads as organic, not mechanical. */
+@keyframes hero-peach-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(140px, -80px) scale(1.14);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes hero-sky-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-120px, 70px) scale(1.12);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.hero-peach-drift {
+  animation: hero-peach-drift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-sky-drift {
+  animation: hero-sky-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-peach-drift,
+  .hero-sky-drift {
     animation: none;
   }
 }
