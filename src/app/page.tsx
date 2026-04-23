@@ -59,39 +59,8 @@ export default function Home() {
           HERO — Premium minimalist with spotlight
           ================================================================ */}
       <section className="relative -mt-24 overflow-hidden bg-white pt-24">
-        {/* Atmospheric layered background — primary glow + drifting pastel washes.
-            Section extends up behind the transparent hero header (-mt-24 + pt-24
-            so inner content stays in place). */}
-
-        {/* Primary teal glow — static anchor, center-top */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 900px 420px at 50% -10%, rgba(8, 58, 79, 0.10), transparent 70%)",
-          }}
-        />
-
-        {/* Peach wash — drifts over 18s (different cycle from sky = organic feel) */}
-        <div
-          aria-hidden
-          className="hero-peach-drift pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 1100px 750px at 0% 30%, rgba(229, 167, 117, 0.32), transparent 75%)",
-          }}
-        />
-
-        {/* Sky wash — drifts over 22s */}
-        <div
-          aria-hidden
-          className="hero-sky-drift pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 1100px 750px at 100% 85%, rgba(123, 162, 189, 0.32), transparent 75%)",
-          }}
-        />
+        {/* Plain white hero — gradient washes removed per feedback. Section
+            still extends up behind the transparent header (-mt-24 + pt-24). */}
 
         <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 md:min-h-[calc(100dvh-6rem)] md:py-16">
           {/* Twin-credential pills — seal moved to hero header, so these
