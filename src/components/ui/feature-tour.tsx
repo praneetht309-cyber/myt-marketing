@@ -17,7 +17,7 @@ interface FeatureTourProps {
 
 export function FeatureTour({ painPoints }: FeatureTourProps) {
   return (
-    <section className="bg-white">
+    <section className="bg-neutral-50">
       {/* Section opener — frames the workflow blocks that follow */}
       <div className="mx-auto max-w-4xl px-4 pt-20 text-center sm:px-6 md:pt-28">
         <ScrollReveal animation="fade" direction="up">
@@ -51,9 +51,14 @@ function FeatureBlock({
   total,
 }: PainPoint & { index: number; total: number }) {
   const reverse = index % 2 === 1;
+  const isWhiteBlock = index % 2 === 0;
 
   return (
-    <div className="border-t border-neutral-100 px-4 py-16 sm:px-6 md:py-24 lg:py-28">
+    <div
+      className={`px-4 py-16 sm:px-6 md:py-24 lg:py-28 ${
+        isWhiteBlock ? "bg-white" : ""
+      }`}
+    >
       <div
         className={`mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row md:gap-16 lg:gap-20 ${
           reverse ? "md:flex-row-reverse" : ""

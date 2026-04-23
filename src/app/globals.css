@@ -28,6 +28,8 @@
   --color-neutral-600: #5A5A5A;
   --color-neutral-700: #2E2E2E;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-lora: "Lora", Georgia, serif;
+  --font-roboto-slab: "Roboto Slab", Georgia, serif;
 }
 
 body {
