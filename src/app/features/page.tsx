@@ -1108,7 +1108,7 @@ function ServicesCardRow() {
           <ServiceCard
             kicker="Requests"
             icon={ClipboardCheck}
-            rotation="rotate-[-2deg]"
+            rotation="md:rotate-[-2deg]"
             yOffset="md:translate-y-2"
           >
             <div className="flex items-baseline justify-between">
@@ -1184,7 +1184,7 @@ function ServicesCardRow() {
           <ServiceCard
             kicker="Warranties"
             icon={FileBadge2}
-            rotation="rotate-[2deg]"
+            rotation="md:rotate-[2deg]"
             yOffset="md:translate-y-2"
           >
             <p className="text-base font-semibold leading-snug text-text-heading">
@@ -1787,9 +1787,8 @@ export default function FeaturesPage() {
               transforms and scales predictably. */}
           <ScrollReveal animation="fade" direction="up" delay={0.3}>
             <div
-              className="relative mx-auto mt-12 hidden w-full max-w-[720px] lg:block"
+              className="relative mx-auto mt-12 hidden w-full max-w-[720px] lg:grid"
               style={{
-                display: "grid",
                 gridTemplateColumns: "210px 240px 210px",
                 gridTemplateRows: "auto 1fr 1fr",
                 gridTemplateAreas: `
@@ -1939,26 +1938,13 @@ export default function FeaturesPage() {
             </div>
           </ScrollReveal>
 
-          {/* Mobile/tablet fallback — phone on top, grid of 5 pins below */}
+          {/* Mobile/tablet fallback — stacked pillar cards. Phone mockup
+              omitted: showing a phone-on-a-phone is redundant for users
+              already viewing on mobile. Cards capped + centered on mobile
+              so they don't bleed edge-to-edge. */}
           <div className="mt-12 lg:hidden">
             <ScrollReveal animation="fade" direction="up" delay={0.3}>
-              <div className="flex justify-center">
-                <div
-                  className="relative overflow-hidden rounded-[32px] border-[3px] border-neutral-700 bg-white shadow-xl"
-                  style={{ width: 200, height: 420 }}
-                >
-                  <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-xl bg-neutral-700" />
-                  <Image
-                    src="/dashboard-screenshot.jpeg"
-                    alt="MYT dashboard"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal animation="fade" direction="up" delay={0.4}>
-              <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="mx-auto grid max-w-xs grid-cols-1 gap-3 sm:max-w-none sm:grid-cols-2">
                 {(
                   [
                     { id: "money", num: "01", label: "Money", tag: "Accounts that reconcile.", icon: Wallet, accent: "coral" as PastelKey },
