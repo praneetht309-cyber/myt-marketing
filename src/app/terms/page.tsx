@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SITE } from "@/lib/constants";
+import { H1, H3, BodySm } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -18,20 +19,16 @@ export default function TermsPage() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.1}>
-          <h1 className="mt-6 text-4xl font-bold text-text-heading sm:text-5xl">
-            Terms & Conditions
-          </h1>
-          <p className="mt-4 text-sm text-text-body">
-            Last updated: 26 March 2026
-          </p>
+          <H1 className="mt-6">Terms & Conditions</H1>
+          <BodySm className="mt-4">Last updated: 26 March 2026</BodySm>
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.2} amount={0.05}>
           <div className="mt-12 space-y-8 text-text-body leading-relaxed">
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 1. Acceptance of Terms
-              </h2>
+              </H3>
               <p className="mt-3">
                 By accessing or using the MYT mobile application (&quot;the
                 App&quot;), you agree to be bound by these Terms & Conditions.
@@ -45,9 +42,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 2. Eligibility
-              </h2>
+              </H3>
               <p className="mt-3">
                 You must be at least 18 years of age and a resident of India to
                 use MYT. By using the App, you represent that you meet these
@@ -56,9 +53,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 3. Account & Authentication
-              </h2>
+              </H3>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>
                   Accounts are created using your Indian mobile phone number via
@@ -80,9 +77,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 4. Apartment Communities
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT allows apartment administrators to create and manage
                 residential communities. By joining an apartment on MYT:
@@ -104,9 +101,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 5. Financial Features
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT provides tools for tracking maintenance payments, balances,
                 and financial records:
@@ -128,9 +125,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 6. User Conduct
-              </h2>
+              </H3>
               <p className="mt-3">You agree not to:</p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>
@@ -156,9 +153,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 7. Roles & Permissions
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT implements permission-based access control. Each user has
                 access appropriate to their relationship with the apartment
@@ -184,9 +181,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 8. Account Deletion
-              </h2>
+              </H3>
               <p className="mt-3">
                 You may delete your account at any time from the My Profile
                 section of the App. Upon deletion:
@@ -216,9 +213,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 9. Intellectual Property
-              </h2>
+              </H3>
               <p className="mt-3">
                 The MYT App, including its design, features, and content, is
                 owned by us and protected by applicable intellectual property
@@ -228,9 +225,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 10. Limitation of Liability
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT is provided &quot;as is&quot; without warranties of any
                 kind. To the maximum extent permitted by law:
@@ -256,9 +253,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 11. Changes to Terms
-              </h2>
+              </H3>
               <p className="mt-3">
                 We may update these Terms & Conditions from time to time.
                 Changes will be posted on this page with an updated &quot;Last
@@ -268,9 +265,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 12. Governing Law
-              </h2>
+              </H3>
               <p className="mt-3">
                 These terms are governed by and construed in accordance with the
                 laws of India. Any disputes arising from these terms shall be
@@ -280,9 +277,9 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 13. Contact Us
-              </h2>
+              </H3>
               <p className="mt-3">
                 For any questions about these Terms & Conditions, contact us at:
               </p>

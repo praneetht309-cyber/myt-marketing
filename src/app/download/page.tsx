@@ -4,22 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SITE } from "@/lib/constants";
+import { HeroTitle, Kicker, Lead, BodyMd } from "@/components/ui/typography";
 
 export default function DownloadPage() {
   return (
     <section className="bg-white">
       <div className="mx-auto flex min-h-[calc(100dvh-8rem)] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-24">
         <ScrollReveal animation="fade" direction="up">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary/50">
-            Download MYT
-          </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-text-heading sm:text-5xl lg:text-6xl">
-            Get MYT on your phone.
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-text-body sm:text-lg">
+          <Kicker className="!text-primary/50">Download MYT</Kicker>
+          <HeroTitle className="mt-3">Get MYT on your phone.</HeroTitle>
+          <Lead className="mx-auto mt-5 max-w-xl">
             Stand Alone Apartment Management, in your pocket.
             Monthly Maintenance, Accounts, Notices and more — ONE APP!
-          </p>
+          </Lead>
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.15}>
@@ -64,7 +61,7 @@ export default function DownloadPage() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.3}>
-          <p className="mt-10 text-sm text-text-body/70">
+          <BodyMd className="mt-10 text-text-body/70">
             Questions before you download?{" "}
             <Link
               href="/contact"
@@ -73,7 +70,7 @@ export default function DownloadPage() {
               Get in touch
             </Link>
             .
-          </p>
+          </BodyMd>
         </ScrollReveal>
       </div>
     </section>

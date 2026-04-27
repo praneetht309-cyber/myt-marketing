@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { Wallet, LineChart, Bell, MessageSquare, type LucideIcon } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { H2, Kicker, Lead } from "@/components/ui/typography";
+import { PASTEL_TINT, PASTEL_GLOW, PASTEL_DEEP, type PastelKey } from "@/lib/palette";
 
-type ColorKey = "coral" | "sage" | "lavender" | "peach";
+// Homepage feature tour uses 4 of the 5 pastels — sky is reserved for other sections.
+type ColorKey = Extract<PastelKey, "coral" | "sage" | "lavender" | "peach">;
 
 interface PainPoint {
   pain: string;
@@ -19,48 +22,13 @@ interface FeatureTourProps {
   painPoints: PainPoint[];
 }
 
-const COLOR_MAP: Record<
-  ColorKey,
-  { light: string; medium: string; deep: string; icon: LucideIcon }
-> = {
-  coral: {
-    light: "var(--color-coral-light)",
-    medium: "var(--color-coral)",
-    deep: "var(--color-coral-deep)",
-    icon: Wallet,
-  },
-  sage: {
-    light: "var(--color-sage-light)",
-    medium: "var(--color-sage)",
-    deep: "var(--color-sage-deep)",
-    icon: LineChart,
-  },
-  lavender: {
-    light: "var(--color-lavender-light)",
-    medium: "var(--color-lavender)",
-    deep: "var(--color-lavender-deep)",
-    icon: Bell,
-  },
-  peach: {
-    light: "var(--color-peach-light)",
-    medium: "var(--color-peach)",
-    deep: "var(--color-peach-deep)",
-    icon: MessageSquare,
-  },
-};
-
-const GLOW_RGBA: Record<ColorKey, string> = {
-  coral: "rgba(224, 132, 113, 0.32)",
-  sage: "rgba(122, 163, 127, 0.28)",
-  lavender: "rgba(142, 128, 183, 0.32)",
-  peach: "rgba(229, 167, 117, 0.32)",
-};
-
-const TINT_HEX: Record<ColorKey, string> = {
-  coral: "#FCE4E0",
-  sage: "#E5EFE5",
-  lavender: "#EAE5F4",
-  peach: "#FDEBD9",
+// Icon per pastel — local to this component since the homepage tour assigns
+// specific icons per pain point. Other pages can map differently.
+const ICON_MAP: Record<ColorKey, LucideIcon> = {
+  coral: Wallet,
+  sage: LineChart,
+  lavender: Bell,
+  peach: MessageSquare,
 };
 
 export function FeatureTour({ painPoints }: FeatureTourProps) {
@@ -94,10 +62,10 @@ function FeatureBlock({
   showSectionHeader?: boolean;
 }) {
   const reverse = index % 2 === 1;
-  const palette = COLOR_MAP[color];
-  const Icon = palette.icon;
-  const glow = GLOW_RGBA[color];
-  const tint = TINT_HEX[color];
+  const Icon = ICON_MAP[color];
+  const deep = PASTEL_DEEP[color];
+  const glow = PASTEL_GLOW[color];
+  const tint = PASTEL_TINT[color];
 
   // Alternate the glow origin so every block feels distinct
   const glowPosition = reverse ? "85% 30%" : "15% 30%";
@@ -114,9 +82,7 @@ function FeatureBlock({
       {showSectionHeader && (
         <div className="relative mx-auto mb-12 max-w-4xl text-center md:mb-16">
           <ScrollReveal animation="fade" direction="up">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-              How it works
-            </p>
+            <Kicker>How it works</Kicker>
           </ScrollReveal>
         </div>
       )}
@@ -132,27 +98,27 @@ function FeatureBlock({
             <div className="flex items-center gap-3">
               <div
                 className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-sm"
-                style={{ backgroundColor: palette.deep }}
+                style={{ backgroundColor: deep }}
               >
                 <Icon className="h-5 w-5" strokeWidth={2} />
               </div>
               <span
                 className="text-xs font-semibold uppercase tracking-[0.25em]"
-                style={{ color: palette.deep, opacity: 0.8 }}
+                style={{ color: deep, opacity: 0.8 }}
               >
                 {String(index + 1).padStart(2, "0")} /{" "}
                 {String(total).padStart(2, "0")}
               </span>
             </div>
-            <p className="mt-6 text-lg font-semibold text-text-body/70 line-through decoration-text-body/50 decoration-2 md:text-2xl">
+            <Lead className="mt-6 font-semibold text-text-body/70 line-through decoration-text-body/50 decoration-2">
               {pain}
-            </p>
-            <h3 className="mt-2 text-2xl font-bold tracking-tight text-text-heading sm:text-3xl md:text-4xl lg:text-5xl">
+            </Lead>
+            <H2 as="h3" className="mt-2">
               {solution}
-            </h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-text-body sm:text-base md:mt-5 md:text-lg">
+            </H2>
+            <Lead className="mt-3 max-w-md md:mt-5">
               {detail}
-            </p>
+            </Lead>
           </ScrollReveal>
         </div>
 

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 
@@ -18,11 +17,13 @@ const MENU_LINKS = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [categoryStuck, setCategoryStuck] = useState(false);
 
-  const isHome = pathname === "/";
-  // Hero header only shows on homepage when user hasn't scrolled yet.
-  const showHeroHeader = isHome && !scrolled;
+  // Hero header (simple logo + hamburger) is the default top-of-page state.
+  // Pill header takes over on scroll — EXCEPT when a category nav is sticky
+  // (e.g. /features), in which case we keep the hero header visible so the
+  // category pills can own the center slot without colliding with the pill.
+  const showHeroHeader = !scrolled || categoryStuck;
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 50);
@@ -32,6 +33,20 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+
+  // Observe the category-nav-stuck class on <body>. CategoryNav toggles it
+  // when the user enters/exits the category zone. See features/page.tsx.
+  useEffect(() => {
+    const sync = () =>
+      setCategoryStuck(document.body.classList.contains("category-nav-stuck"));
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -48,8 +63,7 @@ export function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
         {/* ============================================================
-            PILL HEADER — the default watch-dial design.
-            Visible when scrolled, or on any non-homepage route.
+            PILL HEADER — watch-dial design. Visible once scrolled.
             ============================================================ */}
         <motion.div
           animate={{ opacity: showHeroHeader ? 0 : 1 }}
@@ -189,8 +203,7 @@ export function Header() {
 
         {/* ============================================================
             HERO HEADER — simple layout: MYT logo left, hamburger right.
-            Visible only on homepage when scrollY ≈ 0.
-            (Govt seal SVG kept at /public/govt-seal.svg for later use.)
+            The default at top-of-page across every route.
             ============================================================ */}
         <motion.div
           animate={{ opacity: showHeroHeader ? 1 : 0 }}
@@ -214,11 +227,13 @@ export function Header() {
             />
           </Link>
 
-          {/* Right: hamburger icon */}
+          {/* Right: hamburger icon.
+              `hero-hamburger` hook lets pages invert colors via CSS when the
+              header floats over a dark hero (see globals.css). */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Open menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full text-text-heading transition-colors hover:bg-primary/5 hover:text-primary sm:h-11 sm:w-11"
+            className="hero-hamburger flex h-10 w-10 items-center justify-center rounded-full text-text-heading transition-colors hover:bg-primary/5 hover:text-primary sm:h-11 sm:w-11"
           >
             <AnimatePresence mode="wait" initial={false}>
               {menuOpen ? (

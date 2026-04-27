@@ -29,9 +29,9 @@
   --color-neutral-700: #2E2E2E;
 
   /* Marketing-site accent pastels (not in app; marketing only) */
-  --color-coral-light: #FCE4E0;
-  --color-coral: #E08471;
-  --color-coral-deep: #C2624F;
+  --color-coral-light: #F7F0D5;
+  --color-coral: #E8C463;
+  --color-coral-deep: #9A7612;
   --color-sage-light: #E5EFE5;
   --color-sage: #7AA37F;
   --color-sage-deep: #567159;
@@ -64,6 +64,7 @@ html {
 .hero-dark {
   background: #060d12;
 }
+
 
 /* Hero gradient mesh (legacy, kept for other pages) */
 .hero-gradient {

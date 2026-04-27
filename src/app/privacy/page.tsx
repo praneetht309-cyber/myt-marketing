@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SITE } from "@/lib/constants";
+import { H1, H3, BodySm } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -18,20 +19,16 @@ export default function PrivacyPolicyPage() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.1}>
-          <h1 className="mt-6 text-4xl font-bold text-text-heading sm:text-5xl">
-            Privacy Policy
-          </h1>
-          <p className="mt-4 text-sm text-text-body">
-            Last updated: 26 March 2026
-          </p>
+          <H1 className="mt-6">Privacy Policy</H1>
+          <BodySm className="mt-4">Last updated: 26 March 2026</BodySm>
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.2} amount={0.05}>
           <div className="mt-12 space-y-8 text-text-body leading-relaxed">
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 1. Introduction
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is a
                 stand-alone apartment management platform for self-managed
@@ -46,9 +43,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 2. Data We Collect
-              </h2>
+              </H3>
               <p className="mt-3">We collect the following personal data:</p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>
@@ -83,9 +80,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 3. How We Use Your Data
-              </h2>
+              </H3>
               <p className="mt-3">Your personal data is used to:</p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>Authenticate your identity via phone OTP</li>
@@ -110,9 +107,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 4. Data Sharing
-              </h2>
+              </H3>
               <p className="mt-3">
                 We do <strong>not</strong> sell your personal data to third
                 parties.
@@ -137,9 +134,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 5. Data Storage & Security
-              </h2>
+              </H3>
               <p className="mt-3">
                 Your data is stored on secure cloud infrastructure. We use
                 encryption in transit (HTTPS/TLS), JWT-based authentication, and
@@ -154,9 +151,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 6. Your Rights (DPDP Act 2023)
-              </h2>
+              </H3>
               <p className="mt-3">Under the DPDP Act, you have the right to:</p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>
@@ -180,9 +177,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 7. Data Retention
-              </h2>
+              </H3>
               <p className="mt-3">
                 Your personal data is retained as long as your account is
                 active. Upon account deletion:
@@ -205,9 +202,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 8. Children&apos;s Privacy
-              </h2>
+              </H3>
               <p className="mt-3">
                 MYT is not intended for use by individuals under 18 years of
                 age. We do not knowingly collect personal data from children.
@@ -215,9 +212,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 9. Changes to This Policy
-              </h2>
+              </H3>
               <p className="mt-3">
                 We may update this Privacy Policy from time to time. Changes
                 will be posted on this page with an updated &quot;Last
@@ -227,9 +224,9 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-text-heading">
+              <H3 as="h2">
                 10. Contact Us
-              </h2>
+              </H3>
               <p className="mt-3">
                 For any questions or concerns about this Privacy Policy or your
                 personal data, contact us at:

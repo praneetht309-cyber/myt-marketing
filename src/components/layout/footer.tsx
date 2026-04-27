@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
+import { H6, BodySm, Caption } from "@/components/ui/typography";
 
 export function Footer() {
   return (
@@ -16,21 +17,19 @@ export function Footer() {
               height={64}
               className="h-14 w-14 object-contain sm:h-16 sm:w-16"
             />
-            <p className="mt-3 text-sm text-text-body">
+            <BodySm className="mt-3">
               Stand Alone Apartment Management Platform.
-            </p>
+            </BodySm>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-text-heading">
-              Get in Touch
-            </h4>
+            <H6>Get in Touch</H6>
             <ul className="mt-3 space-y-2">
               <li>
                 <a
                   href="mailto:hello@themyt.app"
-                  className="text-sm text-text-body hover:text-primary"
+                  className="text-sm leading-relaxed text-text-body hover:text-primary"
                 >
                   hello@themyt.app
                 </a>
@@ -39,22 +38,28 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-neutral-200 pt-6 text-xs text-text-body">
-          <p className="text-center sm:text-left">
+        <div className="mt-10 border-t border-neutral-200 pt-6">
+          <Caption as="p" className="block text-center sm:text-left">
             Recognized by DPIIT, Govt. of India ·{" "}
             <span className="font-medium text-text-heading">
               {SITE.dpiitRecognition}
             </span>
-          </p>
+          </Caption>
           <div className="mt-3 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-            <p>
+            <Caption as="p" className="block">
               &copy; {new Date().getFullYear()} Sarvapindi Systems Private Limited. All rights reserved.
-            </p>
+            </Caption>
             <div className="flex gap-4">
-              <Link href="/privacy" className="hover:text-primary">
+              <Link
+                href="/privacy"
+                className="text-xs leading-normal text-text-body hover:text-primary"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-primary">
+              <Link
+                href="/terms"
+                className="text-xs leading-normal text-text-body hover:text-primary"
+              >
                 Terms & Conditions
               </Link>
             </div>

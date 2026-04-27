@@ -3,6 +3,15 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import {
+  H1,
+  H3,
+  H4,
+  H5,
+  BodyLg,
+  BodyMd,
+  BodySm,
+} from "@/components/ui/typography";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -43,16 +52,14 @@ export default function ContactPage() {
               </ScrollReveal>
 
               <ScrollReveal animation="fade" direction="up" delay={0.1}>
-                <h1 className="mt-6 text-4xl font-bold text-text-heading sm:text-5xl">
-                  Get in Touch
-                </h1>
+                <H1 className="mt-6">Get in Touch</H1>
               </ScrollReveal>
 
               <ScrollReveal animation="fade" direction="up" delay={0.2}>
-                <p className="mt-6 text-lg leading-relaxed text-text-body">
+                <BodyLg className="mt-6">
                   Have questions about MYT? Want to partner with us? Or just want
                   to say hello? We&apos;d love to hear from you.
-                </p>
+                </BodyLg>
               </ScrollReveal>
 
               <ScrollReveal animation="fade" direction="up" delay={0.3}>
@@ -74,10 +81,10 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-text-heading">Email</h3>
+                      <H5 as="h3">Email</H5>
                       <a
                         href="mailto:hello@themyt.app"
-                        className="mt-1 text-sm text-primary hover:underline"
+                        className="mt-1 block text-sm leading-relaxed text-primary hover:underline"
                       >
                         hello@themyt.app
                       </a>
@@ -106,12 +113,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-text-heading">
-                        Location
-                      </h3>
-                      <p className="mt-1 text-sm text-text-body">
-                        Hyderabad, India
-                      </p>
+                      <H5 as="h3">Location</H5>
+                      <BodySm className="mt-1">Hyderabad, India</BodySm>
                     </div>
                   </div>
                 </div>
@@ -138,22 +141,18 @@ export default function ContactPage() {
                         />
                       </svg>
                     </div>
-                    <h3 className="mt-4 text-xl font-bold text-text-heading">
-                      Message Sent!
-                    </h3>
-                    <p className="mt-2 text-text-body">
+                    <H3 className="mt-4">Message Sent!</H3>
+                    <BodyMd className="mt-2">
                       We&apos;ll get back to you as soon as possible. Thank you
                       for reaching out!
-                    </p>
+                    </BodyMd>
                   </div>
                 ) : (
                   <>
-                    <h2 className="text-xl font-bold text-text-heading">
-                      Send us a Message
-                    </h2>
-                    <p className="mt-2 text-sm text-text-body">
+                    <H3 as="h2">Send us a Message</H3>
+                    <BodySm className="mt-2">
                       We typically respond within 24 hours.
-                    </p>
+                    </BodySm>
 
                     <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                       <div>

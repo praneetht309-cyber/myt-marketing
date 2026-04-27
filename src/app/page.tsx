@@ -5,6 +5,21 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { FeatureTour } from "@/components/ui/feature-tour";
+import {
+  HeroTitle,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Kicker,
+  Lead,
+  BodyLg,
+  BodyMd,
+  BodySm,
+  Caption,
+} from "@/components/ui/typography";
 import { SITE } from "@/lib/constants";
 import {
   Eye,
@@ -95,57 +110,59 @@ export default function Home() {
             your apartment?
           </motion.p>
 
-          {/* H1 — the thesis, the answer, the claim */}
-          <motion.h1
+          {/* H1 — the thesis, the answer, the claim.
+              The inner MYT word gets a gradient fill + the word "all" gets a
+              hand-drawn gold SVG underline. */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-text-heading sm:text-4xl lg:text-5xl xl:text-6xl"
           >
-            <span
-              className="bg-clip-text font-black text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #083A4F 0%, #204D60 55%, #507381 100%)",
-              }}
-            >
-              MYT
-            </span>{" "}
-            <span className="text-text-heading">
-              does it{" "}
-              <span className="relative inline-block">
-                all
-                <svg
-                  aria-hidden
-                  viewBox="0 0 180 14"
-                  preserveAspectRatio="none"
-                  className="pointer-events-none absolute -bottom-2 left-0 h-[0.3em] w-full"
-                >
-                  <path
-                    d="M3 9 C 40 3, 90 13, 177 5"
-                    fill="none"
-                    stroke="#D2A34A"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                </svg>
+            <HeroTitle className="mt-4 leading-[1.05]">
+              <span
+                className="bg-clip-text font-black text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, #083A4F 0%, #204D60 55%, #507381 100%)",
+                }}
+              >
+                MYT
+              </span>{" "}
+              <span className="text-text-heading">
+                does it{" "}
+                <span className="relative inline-block">
+                  all
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 180 14"
+                    preserveAspectRatio="none"
+                    className="pointer-events-none absolute -bottom-2 left-0 h-[0.3em] w-full"
+                  >
+                    <path
+                      d="M3 9 C 40 3, 90 13, 177 5"
+                      fill="none"
+                      stroke="#D2A34A"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                .
               </span>
-              .
-            </span>
-          </motion.h1>
+            </HeroTitle>
+          </motion.div>
 
           {/* Subhead — supporting claim, restrained */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-text-body sm:text-lg lg:text-xl"
           >
-            <p>
+            <Lead className="mt-8 max-w-2xl">
               Your apartment&apos;s maintenance, accounts, complaints, chat,
               and more —{" "}
               <span className="font-semibold text-text-heading">handled</span>.
-            </p>
+            </Lead>
           </motion.div>
 
           {/* Primary CTA — two-line: main action + speed promise */}
@@ -237,16 +254,14 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
           <ScrollReveal animation="fade" direction="up">
             <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-                For Residents
-              </p>
-              <h2 className="mt-6 text-2xl font-bold leading-tight tracking-tight text-text-heading sm:text-3xl lg:text-4xl">
+              <Kicker>For Residents</Kicker>
+              <H2 className="mt-6 leading-tight">
                 Finally, an app for your apartment.
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-body sm:text-lg">
+              </H2>
+              <BodyLg className="mx-auto mt-5 max-w-2xl">
                 Got a WhatsApp invitation from your admin, or have a joining
                 code? Here&apos;s what you&apos;re joining.
-              </p>
+              </BodyLg>
             </div>
           </ScrollReveal>
 
@@ -266,21 +281,21 @@ export default function Home() {
                 >
                   <Eye className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-5 text-base font-bold tracking-tight text-text-heading">
+                <H5 as="p" className="mt-5">
                   Transparency
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-text-body">
+                </H5>
+                <BodySm as="p" className="mt-2">
                   See where your maintenance money goes. Every rupee, every
                   month.
-                </p>
+                </BodySm>
               </div>
 
               {/* Pay from phone — Coral */}
               <div
-                className="group relative rounded-2xl border p-6 shadow-[0_1px_2px_rgba(8,58,79,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(194,98,79,0.25)]"
+                className="group relative rounded-2xl border p-6 shadow-[0_1px_2px_rgba(8,58,79,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(154,118,18,0.25)]"
                 style={{
                   backgroundColor: "var(--color-coral-light)",
-                  borderColor: "rgba(224, 132, 113, 0.25)",
+                  borderColor: "rgba(232, 196, 99, 0.25)",
                 }}
               >
                 <div
@@ -289,12 +304,12 @@ export default function Home() {
                 >
                   <Smartphone className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-5 text-base font-bold tracking-tight text-text-heading">
+                <H5 as="p" className="mt-5">
                   Pay from your phone
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-text-body">
+                </H5>
+                <BodySm as="p" className="mt-2">
                   No cash. No registers. No WhatsApp screenshots.
-                </p>
+                </BodySm>
               </div>
 
               {/* Complaints tracked — Peach */}
@@ -311,12 +326,12 @@ export default function Home() {
                 >
                   <ClipboardCheck className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-5 text-base font-bold tracking-tight text-text-heading">
+                <H5 as="p" className="mt-5">
                   Complaints that don&apos;t get lost
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-text-body">
+                </H5>
+                <BodySm as="p" className="mt-2">
                   Logged, tracked, resolved — not buried in a WhatsApp group.
-                </p>
+                </BodySm>
               </div>
 
               {/* Your voice counts — Lavender */}
@@ -333,21 +348,21 @@ export default function Home() {
                 >
                   <Megaphone className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-5 text-base font-bold tracking-tight text-text-heading">
+                <H5 as="p" className="mt-5">
                   Your voice counts
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-text-body">
+                </H5>
+                <BodySm as="p" className="mt-2">
                   Polls, announcements, updates — heard, not silenced in
                   noise.
-                </p>
+                </BodySm>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal animation="fade" direction="up" delay={0.3}>
-            <p className="mt-14 text-center text-sm text-text-body/70 sm:text-base">
+            <BodyMd className="mt-14 text-center text-text-body/70">
               Install MYT — your invite link or joining code will get you in.
-            </p>
+            </BodyMd>
           </ScrollReveal>
         </div>
       </section>
@@ -415,13 +430,11 @@ export default function Home() {
           {/* Mission beat */}
           <ScrollReveal animation="fade" direction="up">
             <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-                Our Mission
-              </p>
-              <p className="mt-6 text-2xl font-semibold leading-snug text-text-heading sm:text-3xl lg:text-4xl">
+              <Kicker>Our Mission</Kicker>
+              <H2 as="p" className="mt-6 font-semibold leading-snug">
                 We serve residents ignored for{" "}
                 <span className="text-amber-700">20+ years</span>.
-              </p>
+              </H2>
             </div>
           </ScrollReveal>
 
@@ -432,9 +445,7 @@ export default function Home() {
 
           {/* Founder beat */}
           <ScrollReveal animation="fade" direction="up" delay={0.15}>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-              From the Founder
-            </p>
+            <Kicker>From the Founder</Kicker>
             <p
               aria-hidden
               className="mt-4 font-lora italic text-6xl leading-none text-amber-700/50 select-none"
@@ -463,9 +474,9 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 text-right">
-              <p className="text-base font-semibold text-text-heading">
+              <BodyLg as="p" className="font-semibold text-text-heading">
                 — Founder, MYT
-              </p>
+              </BodyLg>
             </div>
           </ScrollReveal>
         </div>
@@ -485,15 +496,13 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
           <ScrollReveal animation="fade" direction="up">
             <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-                Security
-              </p>
-              <h2 className="mx-auto mt-6 max-w-3xl text-2xl font-bold leading-tight tracking-tight text-text-heading sm:text-3xl lg:text-4xl">
+              <Kicker>Security</Kicker>
+              <H2 className="mx-auto mt-6 max-w-3xl leading-tight">
                 Your apartment&apos;s finances. Protected like they&apos;re ours.
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-text-body sm:text-lg">
+              </H2>
+              <BodyLg className="mx-auto mt-5 max-w-xl">
                 The same protections we apply to our own apartment&apos;s data.
-              </p>
+              </BodyLg>
             </div>
           </ScrollReveal>
 
@@ -507,12 +516,12 @@ export default function Home() {
                 >
                   <Lock className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-4 text-sm font-bold tracking-tight text-text-heading">
+                <H6 as="p" className="mt-4">
                   Encrypted
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-text-body">
+                </H6>
+                <Caption as="p" className="mt-1 block leading-relaxed">
                   In transit and at rest.
-                </p>
+                </Caption>
               </div>
 
               {/* Data stored in India */}
@@ -523,12 +532,12 @@ export default function Home() {
                 >
                   <MapPin className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-4 text-sm font-bold tracking-tight text-text-heading">
+                <H6 as="p" className="mt-4">
                   Data stored in India
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-text-body">
+                </H6>
+                <Caption as="p" className="mt-1 block leading-relaxed">
                   Your records stay home.
-                </p>
+                </Caption>
               </div>
 
               {/* Private by default */}
@@ -539,12 +548,12 @@ export default function Home() {
                 >
                   <ShieldCheck className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-4 text-sm font-bold tracking-tight text-text-heading">
+                <H6 as="p" className="mt-4">
                   Private by default
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-text-body">
+                </H6>
+                <Caption as="p" className="mt-1 block leading-relaxed">
                   Neighbours can&apos;t see your balance.
-                </p>
+                </Caption>
               </div>
 
               {/* Export anytime */}
@@ -555,12 +564,12 @@ export default function Home() {
                 >
                   <Download className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <p className="mt-4 text-sm font-bold tracking-tight text-text-heading">
+                <H6 as="p" className="mt-4">
                   Export anytime
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-text-body">
+                </H6>
+                <Caption as="p" className="mt-1 block leading-relaxed">
                   Your data is yours.
-                </p>
+                </Caption>
               </div>
             </div>
           </ScrollReveal>
@@ -573,13 +582,13 @@ export default function Home() {
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <ScrollReveal animation="scale">
-            <h2 className="text-3xl font-bold text-text-heading sm:text-4xl">
+            <H2>
               Built for apartments with <span className="text-primary">3 to 100</span> flats.
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-lg text-text-body">
+            </H2>
+            <BodyLg className="mx-auto mt-4 max-w-lg">
               Whether you have one block or ten. One Admin or many Admins.
               MYT adapts to your apartment — not the other way around.
-            </p>
+            </BodyLg>
           </ScrollReveal>
         </div>
       </section>
@@ -592,12 +601,10 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6 sm:py-28">
           <ScrollReveal animation="fade" direction="up">
             <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em]">
-                Honest Answers
-              </p>
-              <h2 className="mx-auto mt-6 max-w-3xl text-2xl font-semibold leading-snug text-text-heading sm:text-3xl lg:text-4xl">
+              <Kicker>Honest Answers</Kicker>
+              <H2 className="mx-auto mt-6 max-w-3xl font-semibold leading-snug">
                 Questions you&apos;ll ask. Answered honestly.
-              </h2>
+              </H2>
             </div>
           </ScrollReveal>
 
@@ -605,61 +612,61 @@ export default function Home() {
             <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-12">
               {/* 1. Will residents use it */}
               <div>
-                <p className="text-lg font-semibold text-text-heading">
+                <H4 as="p">
                   Will my residents actually use it?
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-text-body">
+                </H4>
+                <BodyLg as="p" className="mt-3">
                   Yes. We invite them over WhatsApp — install takes 90
                   seconds. Once one resident pays maintenance from their
                   phone, the rest switch fast. They see real value too —
                   transparency on apartment finances, complaints that don&apos;t
                   get lost, and notices they actually read.
-                </p>
+                </BodyLg>
               </div>
 
               {/* 2. How long does setup take */}
               <div>
-                <p className="text-lg font-semibold text-text-heading">
+                <H4 as="p">
                   How long does setup take?
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-text-body">
+                </H4>
+                <BodyLg as="p" className="mt-3">
                   Under 3 minutes, end to end. 15 seconds for the bare
                   essentials — just 6 fields.
-                </p>
+                </BodyLg>
               </div>
 
               {/* 3. What if we're already on Excel */}
               <div>
-                <p className="text-lg font-semibold text-text-heading">
+                <H4 as="p">
                   What if we&apos;re already on Excel?
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-text-body">
+                </H4>
+                <BodyLg as="p" className="mt-3">
                   Upload your sheet during setup. Our AI reads it into MYT —
                   you review, fix anything wrong, and confirm. No retyping.
-                </p>
+                </BodyLg>
               </div>
 
               {/* 4. Is it really free */}
               <div>
-                <p className="text-lg font-semibold text-text-heading">
+                <H4 as="p">
                   Is it really free? What&apos;s the catch?
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-text-body">
+                </H4>
+                <BodyLg as="p" className="mt-3">
                   No catch. The app is free for apartments. If we ever charge
                   for anything, it&apos;ll be an optional add-on — never a
                   required fee to run your apartment.
-                </p>
+                </BodyLg>
               </div>
 
               {/* 5. What if MYT shuts down */}
               <div>
-                <p className="text-lg font-semibold text-text-heading">
+                <H4 as="p">
                   What if MYT shuts down, or we want to leave?
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-text-body">
+                </H4>
+                <BodyLg as="p" className="mt-3">
                   Export your full data in one click, anytime. Your records
                   are yours — not ours.
-                </p>
+                </BodyLg>
               </div>
             </div>
           </ScrollReveal>
@@ -672,16 +679,16 @@ export default function Home() {
       <section className="bg-primary">
         <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
           <ScrollReveal animation="fade" direction="up">
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
+            <H2 className="text-white">
               Your Apartment. Your App.
-            </h2>
-            <div className="mt-6 space-y-1 text-lg text-white/70">
-              <p>Stop chasing screenshots.</p>
-              <p>Stop updating spreadsheets.</p>
+            </H2>
+            <div className="mt-6 space-y-1">
+              <BodyLg className="text-white/70">Stop chasing screenshots.</BodyLg>
+              <BodyLg className="text-white/70">Stop updating spreadsheets.</BodyLg>
             </div>
-            <p className="mt-5 text-lg font-semibold text-white">
+            <BodyLg as="p" className="mt-5 font-semibold text-white">
               Start with MYT.
-            </p>
+            </BodyLg>
             <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
               {/* Google Play — live */}
               <a
@@ -720,13 +727,13 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-10 border-t border-white/10 pt-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-300 sm:text-xs sm:tracking-[0.35em]">
+              <Kicker className="!text-amber-300">
                 Founding Cohort · First 100 Apartments
-              </p>
-              <p className="mt-3 text-xs text-white/60 sm:text-sm">
+              </Kicker>
+              <Caption as="p" className="mt-3 text-white/60 sm:text-sm">
                 Priority onboarding · Direct line to the founder · First say
                 on what we build
-              </p>
+              </Caption>
             </div>
           </ScrollReveal>
         </div>
