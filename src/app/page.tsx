@@ -16,7 +16,6 @@ import {
   Kicker,
   Lead,
   BodyLg,
-  BodyMd,
   BodySm,
   Caption,
 } from "@/components/ui/typography";
@@ -360,9 +359,43 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal animation="fade" direction="up" delay={0.3}>
-            <BodyMd className="mt-14 text-center text-text-body/70">
-              Install MYT — your invite link or joining code will get you in.
-            </BodyMd>
+            <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
+              {/* Google Play */}
+              <a
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get MYT on Google Play"
+                className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <Image
+                  src="/badges/google-play-badge.png"
+                  alt="Get it on Google Play"
+                  width={220}
+                  height={66}
+                  className="h-16 w-auto"
+                  unoptimized
+                />
+              </a>
+
+              {/* App Store */}
+              <a
+                href={SITE.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download MYT on the App Store"
+                className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <Image
+                  src="/badges/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width={140}
+                  height={46}
+                  className="h-[46px] w-auto"
+                  unoptimized
+                />
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
