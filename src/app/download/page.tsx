@@ -40,23 +40,23 @@ export default function DownloadPage() {
               />
             </a>
 
-            {/* App Store — coming soon. Height tuned smaller to match Google Play's visible pill (Google badge has large padding/safe zone, Apple doesn't). */}
-            <div
-              aria-disabled="true"
-              className="relative inline-block cursor-not-allowed opacity-50"
+            {/* App Store — live. Height tuned smaller to match Google Play's visible pill (Google badge has large padding/safe zone, Apple doesn't). */}
+            <a
+              href={SITE.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download MYT on the App Store"
+              className="group transition-transform duration-200 hover:-translate-y-0.5"
             >
               <Image
                 src="/badges/app-store-badge.svg"
-                alt="Download on the App Store (coming soon)"
+                alt="Download on the App Store"
                 width={140}
                 height={46}
                 className="h-[46px] w-auto"
                 unoptimized
               />
-              <span className="absolute -right-2 -top-2 inline-flex items-center rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white shadow-md">
-                Coming soon
-              </span>
-            </div>
+            </a>
           </div>
         </ScrollReveal>
 

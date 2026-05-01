@@ -6,6 +6,8 @@ export const SITE = {
   url: "https://themyt.app",
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.themyt.app",
+  appStoreUrl:
+    "https://apps.apple.com/app/myt-stand-alone-apartment/id6765652968",
   dpiitRecognition: "DIPP256256",
 } as const;
 
