@@ -36,10 +36,6 @@ export default function PrivacyPolicyPage() {
                 how we collect, use, store, and protect your personal data when
                 you use our mobile application and related services.
               </p>
-              <p className="mt-3">
-                This policy is compliant with the Digital Personal Data
-                Protection (DPDP) Act, 2023 of India.
-              </p>
             </div>
 
             <div>

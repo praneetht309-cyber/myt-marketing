@@ -2146,7 +2146,7 @@ export default function FeaturesPage() {
             <SmallCard
               icon={Download}
               title="Export anytime"
-              description="Your records are yours. Export your data whenever you want. DPDP compliant. No lock-in, no drama."
+              description="Your records are yours. Export your data whenever you want. No lock-in, no drama."
               accent="lavender"
             />
           </div>
