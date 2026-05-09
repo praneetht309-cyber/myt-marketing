@@ -141,6 +141,7 @@ function FeatureBlock({
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-cover object-top"
               />
             </div>

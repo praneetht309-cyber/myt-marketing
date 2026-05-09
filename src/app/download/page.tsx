@@ -11,7 +11,7 @@ export default function DownloadPage() {
     <section className="bg-white">
       <div className="mx-auto flex min-h-[calc(100dvh-8rem)] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-24">
         <ScrollReveal animation="fade" direction="up">
-          <Kicker className="!text-primary/50">Download MYT</Kicker>
+          <Kicker>Download MYT</Kicker>
           <HeroTitle className="mt-3">Get MYT on your phone.</HeroTitle>
           <Lead className="mx-auto mt-5 max-w-xl">
             Stand Alone Apartment Management, in your pocket.
@@ -61,7 +61,7 @@ export default function DownloadPage() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade" direction="up" delay={0.3}>
-          <BodyMd className="mt-10 text-text-body/70">
+          <BodyMd className="mt-10">
             Questions before you download?{" "}
             <Link
               href="/contact"
@@ -71,7 +71,7 @@ export default function DownloadPage() {
             </Link>
             .
           </BodyMd>
-          <BodyMd className="mt-3 text-text-body/70">
+          <BodyMd className="mt-3">
             Want to see what MYT does first?{" "}
             <Link
               href="/features"
