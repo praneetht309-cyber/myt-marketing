@@ -252,7 +252,7 @@ export function Kicker({
 }: TypographyProps) {
   return (
     <Tag
-      className={`text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700 sm:text-xs sm:tracking-[0.35em] ${className}`}
+      className={`text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-800 sm:text-xs sm:tracking-[0.35em] ${className}`}
       {...rest}
     >
       {children}
