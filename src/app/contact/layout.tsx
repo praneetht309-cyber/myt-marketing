@@ -13,6 +13,11 @@ export const metadata: Metadata = {
       "Get in touch about onboarding your apartment, partnerships, or product feedback.",
     url: "https://www.themyt.app/contact",
   },
+  twitter: {
+    title: "Contact MYT — Talk to the Founder",
+    description:
+      "Reach out about onboarding your apartment, partnerships, or product feedback. Built for self-managed stand-alone apartments in India.",
+  },
 };
 
 export default function ContactLayout({

@@ -13,6 +13,11 @@ export const metadata: Metadata = {
       "Free apartment management app for self-managed residential communities in India.",
     url: "https://www.themyt.app/download",
   },
+  twitter: {
+    title: "Download MYT — Free on Google Play and App Store",
+    description:
+      "Free apartment management app for self-managed stand-alone apartments in India. Available on Android and iOS.",
+  },
 };
 
 export default function DownloadLayout({

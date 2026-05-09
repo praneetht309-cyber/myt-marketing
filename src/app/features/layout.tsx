@@ -13,6 +13,11 @@ export const metadata: Metadata = {
       "Maintenance, notices, requests, residents, and archives — purpose-built for self-managed stand-alone apartments in India.",
     url: "https://www.themyt.app/features",
   },
+  twitter: {
+    title: "MYT Features — Apartment Management for Indian Communities",
+    description:
+      "Maintenance, notices, requests, residents, and archives — purpose-built for self-managed stand-alone apartments in India.",
+  },
 };
 
 export default function FeaturesLayout({
