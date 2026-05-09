@@ -329,7 +329,14 @@ export default function Home() {
                   Complaints that don&apos;t get lost
                 </H5>
                 <BodySm as="p" className="mt-2">
-                  Logged, tracked, resolved — not buried in a WhatsApp group.
+                  Logged, tracked, resolved — not buried in a{" "}
+                  <Link
+                    href="/features#voice"
+                    className="font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    WhatsApp group
+                  </Link>
+                  .
                 </BodySm>
               </div>
 
@@ -721,6 +728,14 @@ export default function Home() {
             </div>
             <BodyLg as="p" className="mt-5 font-semibold text-white">
               Start with MYT.
+            </BodyLg>
+            <BodyLg as="p" className="mt-6 text-white/70">
+              <Link
+                href="/features"
+                className="underline-offset-4 hover:underline"
+              >
+                See all features for stand-alone apartments →
+              </Link>
             </BodyLg>
             <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
               {/* Google Play — live */}

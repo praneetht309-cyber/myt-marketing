@@ -71,6 +71,16 @@ export default function DownloadPage() {
             </Link>
             .
           </BodyMd>
+          <BodyMd className="mt-3 text-text-body/70">
+            Want to see what MYT does first?{" "}
+            <Link
+              href="/features"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              See all features for stand-alone apartments
+            </Link>
+            .
+          </BodyMd>
         </ScrollReveal>
       </div>
     </section>
