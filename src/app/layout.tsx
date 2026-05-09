@@ -128,7 +128,7 @@ const softwareApplicationSchema = {
   audience: {
     "@type": "Audience",
     audienceType:
-      "Self-managed residential apartment communities in India (3-300 flats)",
+      "Self-managed stand-alone apartments in India (3-100 flats)",
   },
 };
 

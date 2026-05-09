@@ -2,7 +2,7 @@ export const SITE = {
   name: "MYT",
   tagline: "Stand Alone Apartment Management Platform",
   description:
-    "MYT is a management platform built for self-managed residential communities in India. Quick setup. Apartment-wide tools.",
+    "Free apartment management app for self-managed stand-alone apartments in India. Replaces Excel sheets, WhatsApp groups, and paper registers.",
   url: "https://themyt.app",
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.themyt.app",

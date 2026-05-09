@@ -1,11 +1,19 @@
 # MYT — Stand-Alone Apartment Management
 
-> MYT is a free mobile app for self-managed residential apartment communities in India (3-300 flats), built by a stand-alone apartment resident. It handles maintenance collection, communications, requests, and finances without needing an external management company.
+> MYT is a free mobile app for self-managed stand-alone apartments in India (3-100 flats), built by a stand-alone apartment resident. It replaces Excel sheets, WhatsApp groups, and paper registers with structured tools for maintenance, communications, requests, and finances — without needing an external management company.
+
+## What MYT replaces
+
+- **Excel sheets** for maintenance tracking, accounting, and per-flat ledgers
+- **WhatsApp groups** for announcements, complaints, and resident communication
+- **Paper registers** for visitor logs, payment records, and meeting notes
+- **Cash and UPI payment screenshots** with no shared audit trail
+- **External management companies** for stand-alone buildings that don't need one
 
 ## Who it's for
 
-- Self-managed residential apartments / Apartment Owners Associations (AOAs) in India
-- Apartment sizes 3 to 300 flats
+- Self-managed stand-alone apartments / Apartment Owners Associations (AOAs) in India
+- Apartment sizes 3 to 100 flats
 - Communities that don't have or don't want a professional facility-management company
 - Owners, tenants, admins, watchmen — each with role-appropriate access
 
