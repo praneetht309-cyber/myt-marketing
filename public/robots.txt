@@ -1,0 +1,9 @@
+# MYT — themyt.app
+# Self-managed apartment management platform for India
+
+User-agent: *
+Allow: /
+Disallow: /hero-v3
+Disallow: /api/
+
+Sitemap: https://www.themyt.app/sitemap.xml

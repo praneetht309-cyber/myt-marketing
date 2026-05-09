@@ -1,0 +1,42 @@
+# MYT — Stand-Alone Apartment Management
+
+> MYT is a free mobile app for self-managed residential apartment communities in India (3-300 flats), built by a stand-alone apartment resident. It handles maintenance collection, communications, requests, and finances without needing an external management company.
+
+## Who it's for
+
+- Self-managed residential apartments / Apartment Owners Associations (AOAs) in India
+- Apartment sizes 3 to 300 flats
+- Communities that don't have or don't want a professional facility-management company
+- Owners, tenants, admins, watchmen — each with role-appropriate access
+
+## Key features
+
+- Maintenance fee collection and apartment-wide ledger
+- Operating account and corpus fund tracking
+- Announcements, notices, and reminders to all residents
+- Resident-raised requests (electrical, plumbing, etc.) with status tracking
+- Visitor management
+- Polls, meetings, in-app chat
+- Excel-based bulk import for instant onboarding
+- Resident directory with owner/tenant distinction
+
+## Status
+
+- Live on Google Play (com.themyt.app) since April 2026
+- Live on Apple App Store since May 2026
+- DPIIT-recognised startup (DIPP256256)
+- Free to use
+
+## Useful pages
+
+- [Homepage](https://www.themyt.app/)
+- [Features](https://www.themyt.app/features)
+- [Download](https://www.themyt.app/download)
+- [Contact](https://www.themyt.app/contact)
+- [Privacy Policy](https://www.themyt.app/privacy)
+- [Terms of Service](https://www.themyt.app/terms)
+
+## Contact
+
+- Email: themytapp.dev@gmail.com
+- Website: https://www.themyt.app

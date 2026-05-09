@@ -21,12 +21,118 @@ const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
 });
 
+const CANONICAL_URL = "https://www.themyt.app";
+const OG_IMAGE = "/dashboard-screenshot.jpeg";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(CANONICAL_URL),
   title: {
     default: `${SITE.name} — ${SITE.tagline}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  applicationName: SITE.name,
+  keywords: [
+    "apartment management app India",
+    "self-managed apartment software",
+    "AOA management platform",
+    "stand-alone apartment app",
+    "society management India",
+    "maintenance collection app",
+    "resident management software",
+  ],
+  authors: [{ name: "Sarvapindi Systems Private Limited" }],
+  creator: "Sarvapindi Systems Private Limited",
+  publisher: "Sarvapindi Systems Private Limited",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: CANONICAL_URL,
+    siteName: SITE.name,
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} — ${SITE.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    images: [OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Sarvapindi Systems Private Limited",
+  alternateName: SITE.name,
+  url: CANONICAL_URL,
+  logo: `${CANONICAL_URL}/myt-logo.svg`,
+  description:
+    "Sarvapindi Systems Private Limited is a DPIIT-recognised Indian startup building MYT, a management platform for self-managed residential apartments.",
+  foundingDate: "2026",
+  email: "themytapp.dev@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
+};
+
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: SITE.name,
+  alternateName: `${SITE.name} — ${SITE.tagline}`,
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Apartment Management",
+  operatingSystem: "Android, iOS",
+  description: SITE.description,
+  url: CANONICAL_URL,
+  installUrl: [SITE.playStoreUrl, SITE.appStoreUrl],
+  downloadUrl: [SITE.playStoreUrl, SITE.appStoreUrl],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "INR",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Sarvapindi Systems Private Limited",
+    url: CANONICAL_URL,
+  },
+  inLanguage: "en-IN",
+  countriesSupported: "IN",
+  audience: {
+    "@type": "Audience",
+    audienceType:
+      "Self-managed residential apartment communities in India (3-300 flats)",
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +142,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareApplicationSchema),
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${lora.variable} ${robotoSlab.variable} font-sans antialiased`}
       >
