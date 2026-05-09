@@ -24,7 +24,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <H6>Get in Touch</H6>
+            <H6 as="h2">Get in Touch</H6>
             <ul className="mt-3 space-y-2">
               <li>
                 <a

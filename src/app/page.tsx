@@ -255,7 +255,7 @@ export default function Home() {
             <div className="text-center">
               <Kicker>For Residents</Kicker>
               <H2 className="mt-6 leading-tight">
-                Finally, an app for your apartment.
+                Finally, an app for your stand-alone apartment.
               </H2>
               <BodyLg className="mx-auto mt-5 max-w-2xl">
                 Got a WhatsApp invitation from your admin, or have a joining
@@ -616,7 +616,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <ScrollReveal animation="scale">
             <H2>
-              Built for apartments with <span className="text-primary">3 to 100</span> flats.
+              Built for stand-alone apartments with <span className="text-primary">3 to 100</span> flats.
             </H2>
             <BodyLg className="mx-auto mt-4 max-w-lg">
               Whether you have one block or ten. One Admin or many Admins.

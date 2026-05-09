@@ -1645,7 +1645,7 @@ function SmallCard({ icon: Icon, title, description, accent }: SmallCardProps) {
       >
         <Icon className="h-5 w-5" strokeWidth={2} />
       </div>
-      <H4 className="mt-4">{title}</H4>
+      <H4 as="h3" className="mt-4">{title}</H4>
       <BodySm className="mt-2">{description}</BodySm>
     </div>
   );

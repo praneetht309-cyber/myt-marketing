@@ -81,7 +81,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <H5 as="h3">Email</H5>
+                      <H5 as="h2">Email</H5>
                       <a
                         href="mailto:hello@themyt.app"
                         className="mt-1 block text-sm leading-relaxed text-primary hover:underline"
@@ -113,7 +113,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <H5 as="h3">Location</H5>
+                      <H5 as="h2">Location</H5>
                       <BodySm className="mt-1">Hyderabad, India</BodySm>
                     </div>
                   </div>
