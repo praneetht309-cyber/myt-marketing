@@ -1892,7 +1892,7 @@ export default function FeaturesPage() {
                   <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-xl bg-neutral-700" />
                   <Image
                     src="/dashboard-screenshot.jpeg"
-                    alt="MYT dashboard"
+                    alt="MYT app dashboard for apartment maintenance, finances, and resident activity"
                     fill
                     className="object-cover object-top"
                     priority
