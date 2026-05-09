@@ -22,7 +22,7 @@ const robotoSlab = Roboto_Slab({
 });
 
 const CANONICAL_URL = "https://www.themyt.app";
-const OG_IMAGE = "/dashboard-screenshot.jpeg";
+const OG_IMAGE = "/og-image.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(CANONICAL_URL),
