@@ -97,7 +97,7 @@ const organizationSchema = {
   description:
     "Sarvapindi Systems Private Limited is a DPIIT-recognised Indian startup building MYT, a management platform for self-managed residential apartments.",
   foundingDate: "2026",
-  email: "themytapp.dev@gmail.com",
+  email: "hello@themyt.app",
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",
