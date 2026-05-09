@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Features — Money, Voice, Services, People, Memory",
+  title: "Features — Apartment Management for Indian Communities",
   description:
-    "Five pillars built for self-managed apartments: maintenance and finances, communications, requests and handymen, resident directory, and apartment memory.",
+    "Five things MYT does for self-managed apartments in India: maintenance & finances, notices & chat, requests & handymen, resident directory, and apartment memory.",
   alternates: {
     canonical: "/features",
   },
   openGraph: {
-    title: "MYT Features — Five Pillars for Self-Managed Apartments",
+    title: "MYT Features — Apartment Management for Indian Communities",
     description:
-      "Maintenance collection, announcements, requests, residents, and archives — purpose-built for stand-alone apartments in India.",
+      "Maintenance, notices, requests, residents, and archives — purpose-built for self-managed stand-alone apartments in India.",
     url: "https://www.themyt.app/features",
   },
 };
