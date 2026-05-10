@@ -2,7 +2,7 @@ export const SITE = {
   name: "MYT",
   tagline: "Stand Alone Apartment Management Platform",
   description:
-    "apartment management app for self-managed stand-alone apartments in India. Replaces Excel sheets, WhatsApp groups, and paper registers.",
+    "Apartment management app for self-managed stand-alone apartments in India. Replaces Excel sheets, WhatsApp groups, and paper registers.",
   url: "https://themyt.app",
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.themyt.app",
