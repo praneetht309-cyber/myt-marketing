@@ -684,7 +684,18 @@ export default function Home() {
                 </BodyLg>
               </div>
 
-              {/* 4. What if MYT shuts down */}
+              {/* 4. What if MYT doesn't have a feature we need yet */}
+              <div>
+                <H4 as="p">
+                  What if MYT doesn&apos;t have a feature we need yet?
+                </H4>
+                <BodyLg as="p" className="mt-3">
+                  Write to us — we read every message. We ship updates every
+                  few weeks, and resident requests shape what we build next.
+                </BodyLg>
+              </div>
+
+              {/* 5. What if MYT shuts down */}
               <div>
                 <H4 as="p">
                   What if MYT shuts down, or we want to leave?
