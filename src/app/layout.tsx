@@ -113,11 +113,6 @@ const softwareApplicationSchema = {
   url: CANONICAL_URL,
   installUrl: [SITE.playStoreUrl, SITE.appStoreUrl],
   downloadUrl: [SITE.playStoreUrl, SITE.appStoreUrl],
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "INR",
-  },
   publisher: {
     "@type": "Organization",
     name: "Sarvapindi Systems Private Limited",

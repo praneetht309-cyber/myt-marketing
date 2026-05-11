@@ -199,8 +199,7 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* Trust proof row — horizontal pills, breaks the vertical stack
-              and composes 4 credentials (Free / No ads / Fast setup / Resident-built) */}
+          {/* Trust proof row — horizontal pills (Govt-recognised startup / No ads) */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,7 +207,7 @@ export default function Home() {
             className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
           >
             {[
-              { dot: "var(--color-sage)", label: "Free to use" },
+              { dot: "var(--color-sage)", label: "Govt of India recognised startup" },
               { dot: "var(--color-sky)", label: "No ads" },
             ].map((pill) => (
               <span
@@ -507,7 +506,6 @@ export default function Home() {
                 </span>{' '}
                 is the app my building uses today.
               </p>
-              <p>MYT is free to use.</p>
               <p>
                 Trust isn&apos;t a tagline for us — it&apos;s the operating system.
                 No ads. No data sales. Your data is yours.
@@ -686,19 +684,7 @@ export default function Home() {
                 </BodyLg>
               </div>
 
-              {/* 4. Is it really free */}
-              <div>
-                <H4 as="p">
-                  Is it really free? What&apos;s the catch?
-                </H4>
-                <BodyLg as="p" className="mt-3">
-                  No catch. The app is free for apartments. If we ever charge
-                  for anything, it&apos;ll be an optional add-on — never a
-                  required fee to run your apartment.
-                </BodyLg>
-              </div>
-
-              {/* 5. What if MYT shuts down */}
+              {/* 4. What if MYT shuts down */}
               <div>
                 <H4 as="p">
                   What if MYT shuts down, or we want to leave?
