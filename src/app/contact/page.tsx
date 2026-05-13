@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { track } from "@vercel/analytics";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import {
   H1,
@@ -30,6 +31,7 @@ export default function ContactPage() {
         body: data,
         headers: { Accept: "application/json" },
       });
+      track("contact_form_submit");
       setSubmitted(true);
     } catch {
       alert("Something went wrong. Please try again.");

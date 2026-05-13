@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SITE } from "@/lib/constants";
 import { HeroTitle, Kicker, Lead, BodyMd } from "@/components/ui/typography";
@@ -27,6 +28,7 @@ export default function DownloadPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Get MYT on Google Play"
+              onClick={() => track("download_click", { platform: "android", source: "download_page" })}
               className="group transition-transform duration-200 hover:-translate-y-0.5"
             >
               <Image
@@ -46,6 +48,7 @@ export default function DownloadPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download MYT on the App Store"
+              onClick={() => track("download_click", { platform: "ios", source: "download_page" })}
               className="group transition-transform duration-200 hover:-translate-y-0.5"
             >
               <Image

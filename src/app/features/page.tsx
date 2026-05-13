@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import {
   Wallet,
   Receipt,
@@ -1735,6 +1736,31 @@ function OrbitalPin({
    ====================================================================== */
 
 export default function FeaturesPage() {
+  useEffect(() => {
+    const pillarIds = ["money", "voice", "services", "people", "memory"] as const;
+    const fired = new Set<string>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = entry.target.id;
+          if (entry.isIntersecting && !fired.has(id)) {
+            fired.add(id);
+            track("features_section_view", { pillar: id });
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    for (const id of pillarIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ================================================================

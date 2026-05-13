@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { FeatureTour } from "@/components/ui/feature-tour";
 import {
@@ -173,6 +174,7 @@ export default function Home() {
           >
             <Link
               href="/download"
+              onClick={() => track("cta_click_landing", { cta: "hero_create_apartment" })}
               className="group inline-flex min-w-[280px] items-center justify-between rounded-full bg-primary px-7 py-4 text-white shadow-[0_10px_30px_-10px_rgba(8,58,79,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(8,58,79,0.55)] sm:min-w-[320px] sm:px-9 sm:py-5"
             >
               <span className="flex flex-1 flex-col items-center leading-tight">
@@ -372,6 +374,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Get MYT on Google Play"
+                onClick={() => track("download_click", { platform: "android", source: "landing_for_residents" })}
                 className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <Image
@@ -390,6 +393,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download MYT on the App Store"
+                onClick={() => track("download_click", { platform: "ios", source: "landing_for_residents" })}
                 className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <Image
@@ -741,6 +745,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Get MYT on Google Play"
+                onClick={() => track("download_click", { platform: "android", source: "landing_final_cta" })}
                 className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <Image
@@ -759,6 +764,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download MYT on the App Store"
+                onClick={() => track("download_click", { platform: "ios", source: "landing_final_cta" })}
                 className="inline-block transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <Image
